@@ -12,6 +12,12 @@ export default function EnquiryForm() {
 
   const [status, setStatus] = useState("");
 
+  const API_BASE =
+    import.meta?.env?.VITE_API_BASE_URL ||
+    (typeof window !== "undefined" && window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : "https://nif-backend.onrender.com");
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -21,7 +27,7 @@ export default function EnquiryForm() {
     setStatus("Sending...");
 
     try {
-      const res = await fetch("https://nif-backend.onrender.com/api/contact", {
+      const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
