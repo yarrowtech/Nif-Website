@@ -26,7 +26,7 @@ import gallery11 from "../assets/runways/gallery15.jpg";
 import gallery12 from "../assets/runways/gallery31.jpg";
 
 
-const bullet = (
+const _bullet = (
   <svg
     className="w-3.5 h-3.5 mt-1.5 shrink-0 text-red-500"
     viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ const bullet = (
   </svg>
 );
 
-const check = (
+const _check = (
   <svg
     className="w-4 h-4 shrink-0 text-emerald-600"
     viewBox="0 0 24 24"
@@ -48,7 +48,7 @@ const check = (
   </svg>
 );
 
-const specs = [
+const _specs = [
   {
     k: "Duration of the Course",
     v: "1–3 Years (depending upon the course time)",
@@ -67,7 +67,7 @@ const specs = [
   },
 ];
 
-const quickLookBullets = [
+const _quickLookBullets = [
   "Store operations and merchandising",
   "Forecasting of sales and inventory management",
   "Customer experience (CX) and loyalty programs",
@@ -75,7 +75,7 @@ const quickLookBullets = [
   "Real-world simulations and internships",
 ];
 
-const careerOptions = [
+const _careerOptions = [
   "Retail Manager",
   "Visual Merchandiser",
   "Brand Executive",
@@ -187,7 +187,7 @@ export default function RetailManagement() {
   );
 
   // Put this inside your component, ABOVE the return:
-const handleEnquirySubmit = (e) => {
+const _handleEnquirySubmit = (e) => {
   e.preventDefault();
   alert("Enquiry submitted!");
 };
@@ -204,37 +204,52 @@ const handleEnquirySubmit = (e) => {
   const API_BASE =
     import.meta?.env?.VITE_API_BASE_URL || "https://nif-backend.onrender.com";
 
+  if (typeof window !== 'undefined') {
+    console.info('RetailManagement API_BASE =', API_BASE);
+  }
+
+  const [isSending, setIsSending] = useState(false);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((p) => ({ ...p, [name]: value }));
   };
 
   const handleSubmit = async () => {
-    setStatus("Sending...");
+    if (isSending) return;
+    setIsSending(true);
+    setStatus('Sending...');
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // {name, number, email, course, message}
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
 
-      const isJSON = res.headers
-        .get("content-type")
-        ?.toLowerCase()
-        .includes("application/json");
-      const payload = isJSON
-        ? await res.json()
-        : { success: false, message: await res.text() };
+      const contentType = res.headers.get('content-type') || '';
+      const payload = contentType.includes('application/json') ? await res.json() : { success: false, message: await res.text() };
 
       if (res.ok && payload?.success) {
         setStatus("✅ Enquiry sent successfully!");
         setFormData({ name: "", number: "", email: "", course: "", message: "" });
       } else {
-        setStatus(`❌ ${payload?.message || "Failed to send enquiry."}`);
+        setStatus(`❌ ${payload?.message || `Server returned ${res.status}`}`);
       }
     } catch (err) {
-      console.error(err);
-      setStatus("⚠️ Network/Server error. Please try later.");
+      if (err.name === 'AbortError') {
+        setStatus('⚠️ Request timed out. Try again later.');
+      } else {
+        setStatus(`⚠️ Network/Server error: ${err.message || err}`);
+      }
+      console.error('RetailManagement form error:', err);
+    } finally {
+      setIsSending(false);
     }
   };
 

@@ -18,37 +18,53 @@ export default function Contact() {
   const API_BASE =
     import.meta?.env?.VITE_API_BASE_URL || "https://nif-backend.onrender.com";
 
+  if (typeof window !== 'undefined') {
+    console.info('Contact page API_BASE =', API_BASE);
+  }
+
+  const [isSending, setIsSending] = useState(false);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((p) => ({ ...p, [name]: value }));
   };
 
   const handleSubmit = async () => {
-    setStatus("Sending...");
+    if (isSending) return;
+    setIsSending(true);
+    setStatus('Sending...');
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // {name, number, email, course, message}
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
 
-      const isJSON = res.headers
-        .get("content-type")
-        ?.toLowerCase()
-        .includes("application/json");
-      const payload = isJSON
-        ? await res.json()
-        : { success: false, message: await res.text() };
+      const contentType = res.headers.get('content-type') || '';
+      const payload = contentType.includes('application/json') ? await res.json() : { success: false, message: await res.text() };
 
       if (res.ok && payload?.success) {
         setStatus("✅ Enquiry sent successfully!");
         setFormData({ name: "", number: "", email: "", course: "", message: "" });
       } else {
-        setStatus(`❌ ${payload?.message || "Failed to send enquiry."}`);
+        setStatus(`❌ ${payload?.message || `Server returned ${res.status}`}`);
+        console.warn('Contact form failed:', res.status, payload);
       }
     } catch (err) {
-      console.error(err);
-      setStatus("⚠️ Network/Server error. Please try later.");
+      if (err.name === 'AbortError') {
+        setStatus('⚠️ Request timed out. Try again later.');
+      } else {
+        setStatus(`⚠️ Network/Server error: ${err.message || err}`);
+      }
+      console.error('Contact form error:', err);
+    } finally {
+      setIsSending(false);
     }
   };
 

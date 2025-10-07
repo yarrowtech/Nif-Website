@@ -18,33 +18,63 @@ export default function EnquiryForm() {
       ? "http://localhost:5000"
       : "https://nif-backend.onrender.com");
 
+  // log resolved API base for debugging in deployed environments
+  if (typeof window !== 'undefined') {
+    console.info('EnquiryForm API_BASE =', API_BASE);
+  }
+
+  const [isSending, setIsSending] = useState(false);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async () => {
+    if (isSending) return;
+    setIsSending(true);
     setStatus("Sending...");
+
+    // timeout helper
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
 
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
 
-      const isJSON = res.headers.get("content-type")?.includes("application/json");
-      const result = isJSON ? await res.json() : { success: false, message: await res.text() };
+      const contentType = res.headers.get("content-type") || "";
+      let result;
+      if (contentType.includes("application/json")) {
+        result = await res.json();
+      } else {
+        const text = await res.text();
+        result = { success: false, message: text };
+      }
 
       if (res.ok && result.success) {
         setStatus("✅ Enquiry sent successfully!");
         setFormData({ name: "", number: "", email: "", course: "", message: "" });
       } else {
-        setStatus(`❌ ${result.message || "Failed to send enquiry. Try again."}`);
+        const msg = result?.message || `Server returned ${res.status}`;
+        setStatus(`❌ ${msg}`);
+  console.warn('EnquiryForm failed:', res.status, result);
       }
     } catch (error) {
-      console.error(error);
-      setStatus("⚠️ Server error. Please try later.");
+      // distinguish abort
+      if (error.name === 'AbortError') {
+        setStatus('⚠️ Request timed out. Try again later.');
+      } else {
+        setStatus(`⚠️ Network or server error: ${error.message || error}`);
+      }
+  console.error('EnquiryForm error:', error);
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -117,9 +147,10 @@ export default function EnquiryForm() {
           <button
             type="button"
             onClick={handleSubmit}
-            className="bg-neutral-900 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-md shadow hover:bg-neutral-800 transition"
+            disabled={isSending}
+            className={`bg-neutral-900 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-md shadow transition ${isSending ? 'opacity-60 cursor-wait' : 'hover:bg-neutral-800'}`}
           >
-            Submit
+            {isSending ? 'Sending...' : 'Submit'}
           </button>
         </div>
       </div>
