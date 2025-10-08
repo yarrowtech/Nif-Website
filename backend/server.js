@@ -14,16 +14,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple request logger to help debugging in deployed environments
-app.use((req, res, next) => {
-  try {
-    console.info(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  } catch (e) {
-    // ignore logging errors
-  }
-  next();
-});
-
 //nodemailer transport configuration 
  const transporter = nodemailer.createTransport({
       service: "gmail", // or use: host, port, secure
@@ -92,30 +82,6 @@ transporter.sendMail(userMailOptions, (error, info) => {
 });
 });
 
-// health check route for deploy platforms
-app.get('/health', (req, res) => {
-  return res.status(200).json({ status: 'ok' });
-});
-
-// root page to show a friendly title in browser tab
-app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  return res.send(`<!doctype html>
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>NIF backend</title>
-      </head>
-      <body style="font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-        <div style="text-align:center;">
-          <h1 style="color:#e94e2b;">NIF backend</h1>
-          <p>Server is running</p>
-        </div>
-      </body>
-    </html>`);
-});
-
 app.listen(PORT, () => {
-  console.log(`NIF server is running on port ${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

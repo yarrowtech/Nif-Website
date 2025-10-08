@@ -20,6 +20,7 @@ export default function EnquiryForm() {
 
   // log resolved API base for debugging in deployed environments
   if (typeof window !== 'undefined') {
+    // eslint-disable-next-line no-console
     console.info('EnquiryForm API_BASE =', API_BASE);
   }
 
@@ -63,7 +64,8 @@ export default function EnquiryForm() {
       } else {
         const msg = result?.message || `Server returned ${res.status}`;
         setStatus(`❌ ${msg}`);
-  console.warn('EnquiryForm failed:', res.status, result);
+        // eslint-disable-next-line no-console
+        console.warn('EnquiryForm failed:', res.status, result);
       }
     } catch (error) {
       // distinguish abort
@@ -72,7 +74,8 @@ export default function EnquiryForm() {
       } else {
         setStatus(`⚠️ Network or server error: ${error.message || error}`);
       }
-  console.error('EnquiryForm error:', error);
+      // eslint-disable-next-line no-console
+      console.error('EnquiryForm error:', error);
     } finally {
       setIsSending(false);
     }
