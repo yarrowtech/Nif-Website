@@ -4,7 +4,7 @@ import { request as httpRequest } from 'http';
 import { request as httpsRequest } from 'https';
 import { URL } from 'url';
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = 'https://nif-backend.onrender.com';
 
 const payload = {
   name: 'Test User',

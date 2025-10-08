@@ -14,18 +14,22 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//nodemailer transport configuration 
- const transporter = nodemailer.createTransport({
-      service: "gmail", // or use: host, port, secure
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-  });
+//nodemailer transport configuration
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+  pool: true,
+  maxConnections: 2,
+  maxMessages: 20,
+  connectionTimeout: 10000,
+  greetingTimeout: 8000,
+  socketTimeout: 15000,
+});
 
 app.post("/api/contact", async (req, res) => {
-  const { name, number, email , course ,message } = req.body;
-
+  const { name, number, email, course, message } = req.body;
   if (!name || !number || !email || !course || !message) {
     return res.status(400).json({ success: false, message: "All fields are required" });
   }
@@ -39,7 +43,8 @@ app.post("/api/contact", async (req, res) => {
     <p><strong>Message:</strong> ${message}</p>
   `;
 
-  const userHtml = ` <h1>Thank you for contacting us, ${name}!</h1>
+  const userHtml = `
+    <h1>Thank you for contacting us, ${name}!</h1>
     <p>We have received your message and will get back to you shortly.</p>
     <p><strong>Your Message:</strong></p>
     <p>${message}</p>
@@ -48,39 +53,38 @@ app.post("/api/contact", async (req, res) => {
     <p>NIF Team</p>
   `;
 
-  const adminMailOptions = {
-    from: email,
+  const adminMail = {
+    from: process.env.EMAIL_USER,          // ✅ use your authenticated sender
     to: process.env.EMAIL_USER,
     subject: `${course}`,
     html: adminHtml,
+    replyTo: email,                         // ✅ user in reply-to
   };
 
-  const userMailOptions = {
+  const userMail = {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "Thank you for contacting us",
     html: userHtml,
   };
 
-  transporter.sendMail(adminMailOptions, (error, info) => {
-if(error) {
-  console.error("Error sending admin email:", error);
-  return res.status(500).json({ success: false, message: "Failed to send email to admin." });
-}
+  // Respond immediately so Render's proxy doesn't time out
+  res.status(202).json({ success: true, message: "Enquiry received. We’ll email you shortly." });
 
-console.log("Admin email sent:", info.response);
+  // Send emails in background with a guard timeout
+  const withTimeout = (p, ms = 15000) =>
+    Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("SMTP timeout")), ms))]);
 
-transporter.sendMail(userMailOptions, (error, info) => {
-  if(error) {
-    console.error("Error sending acknowledgment email to user", error);
-    return res.status(500).json({ success: false, message: "Failed to send acknowledgment email." });
+  try {
+    await Promise.allSettled([
+      withTimeout(transporter.sendMail(adminMail)),
+      withTimeout(transporter.sendMail(userMail)),
+    ]);
+  } catch (err) {
+    console.error("SMTP error:", err);
   }
+});
 
-  console.log("Acknowledgment email sent:", info.response);
-  return res.status(200).json({ success: true, message: "Emails sent successfully." });
-});
-});
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
