@@ -17,9 +17,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //nodemailer transport configuration
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
+  port: 465,            // or 587 with secure:false
+  secure: true,         // <-- REQUIRED for 465
   auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+  pool: true,
+  maxConnections: 3,
+  maxMessages: 50,
+  connectionTimeout: 15000,
+  greetingTimeout: 8000,
+  socketTimeout: 20000,
 });
+
+transporter.verify()
+  .then(() => console.log("SMTP ready"))
+  .catch(err => console.error("SMTP verify failed:", err));
 
 app.post("/api/contact", async (req, res) => {
   const { name, number, email, course, message } = req.body;
@@ -60,6 +71,15 @@ app.post("/api/contact", async (req, res) => {
     subject: "Thank you for contacting us",
     html: userHtml,
   };
+
+  try {
+    const info = await transporter.sendMail(adminMail);
+    console.log("MAIL SENT:", info.messageId, "rejected:", info.rejected);
+    return res.status(200).json({ success: true, message: "Email sent" });
+  } catch (err) {
+    console.error("SMTP ERROR:", err);
+    return res.status(500).json({ success: false, message: "Email failed", error: String(err) });
+  }
 
   // Respond immediately so Render's proxy doesn't time out
   res.status(202).json({ success: true, message: "Enquiry received. We’ll email you shortly." });
