@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //nodemailer transport configuration
 const transporter = nodemailer.createTransport({
-  host: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
   auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
 });
 
@@ -76,6 +77,10 @@ app.post("/api/contact", async (req, res) => {
     console.error("SMTP error:", err);
   }
 });
+
+app.get("/", (req, res) => {
+  res.send("Welcome to API");
+})
 
 
 app.listen(PORT, () => {
