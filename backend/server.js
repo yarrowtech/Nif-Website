@@ -21,6 +21,10 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
   pool: true,
+  maxConnections: 1,
+  connectionTimeout: 10000,
+  greetingTimeout: 8000,
+  socketTimeout: 15000,
 });
 
 app.post("/api/contact", async (req, res) => {
