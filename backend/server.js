@@ -1,39 +1,102 @@
+// server.js
 import express from "express";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+
+import connectDB from "./config/db.js";
+import Inquiry from "./models/Inquiry.js";
 
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// ---------------------
 // Middleware
+// ---------------------
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//nodemailer transport configuration
+// ---------------------
+// ✅ Nodemailer setup
+// ---------------------
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 587,            // or 587 with secure:false
-  secure: false,         // <-- REQUIRED for 465
+  port: 587,
+  secure: false,
   auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
-  pool: true,
-  maxConnections: 3,
-  maxMessages: 50,
-  connectionTimeout: 15000,
-  greetingTimeout: 8000,
-  socketTimeout: 20000,
 });
 
 transporter.verify()
-  .then(() => console.log("SMTP ready"))
-  .catch(err => console.error("SMTP verify failed:", err));
+  .then(() => console.log("✅ SMTP server is ready"))
+  .catch(err => console.error("❌ SMTP verification failed:", err));
 
+// Helper to timeout long email sends
+const withTimeout = (promise, ms = 15000) =>
+  Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error("SMTP timeout")), ms)),
+  ]);
+
+// ---------------------
+// 🔐 Admin Auth Middleware
+// ---------------------
+const adminAuth = (req, res, next) => {
+  const authHeader = req.headers.authorization || "";
+  if (!authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ success: false, message: "Missing or invalid token" });
+  }
+
+  const token = authHeader.split(" ")[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.admin = decoded;
+    next();
+  } catch (err) {
+    return res.status(403).json({ success: false, message: "Invalid or expired token" });
+  }
+};
+
+// ---------------------
+// 👤 Admin Login Route
+// ---------------------
+
+app.post("/api/admin/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password)
+      return res.status(400).json({ success: false, message: "Email and password required" });
+
+    if (email !== process.env.ADMIN_EMAIL)
+      return res.status(401).json({ success: false, message: "Invalid credentials" });
+
+    // bcrypt comparison with hashed password from .env
+    const isMatch = await bcrypt.compare(password, process.env.ADMIN_PASSWORD);
+    if (!isMatch)
+      return res.status(401).json({ success: false, message: "Invalid credentials" });
+
+    const token = jwt.sign({ role: "admin", email }, process.env.JWT_SECRET, { expiresIn: "2h" });
+    res.json({ success: true, token });
+  } catch (err) {
+    console.error("❌ Admin login error:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+
+// ---------------------
+// 📩 Contact Form Handler
+// ---------------------
+// 📩 Contact Form Handler
+// ---------------------
 app.post("/api/contact", async (req, res) => {
   const { name, number, email, course, message } = req.body;
+
   if (!name || !number || !email || !course || !message) {
     return res.status(400).json({ success: false, message: "All fields are required" });
   }
@@ -50,59 +113,140 @@ app.post("/api/contact", async (req, res) => {
   const userHtml = `
     <h1>Thank you for contacting us, ${name}!</h1>
     <p>We have received your message and will get back to you shortly.</p>
-    <p><strong>Your Message:</strong></p>
-    <p>${message}</p>
+    <p><strong>Your Message:</strong> ${message}</p>
     <br/>
-    <p>Best regards,</p>
-    <p>NIF Team</p>
+    <p>Best regards,<br/>NIF Team</p>
   `;
 
   const adminMail = {
-    from: process.env.EMAIL_USER,          // ✅ use your authenticated sender
+    from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: `${course}`,
+    subject: `New Inquiry: ${course}`,
     html: adminHtml,
-    replyTo: email,                         // ✅ user in reply-to
+    replyTo: email,
   };
 
   const userMail = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: "Thank you for contacting us",
+    subject: "Thank you for contacting NIF",
     html: userHtml,
   };
 
   try {
-    const info = await transporter.sendMail(adminMail);
-    console.log("MAIL SENT:", info.messageId, "rejected:", info.rejected);
-    return res.status(200).json({ success: true, message: "Email sent" });
-  } catch (err) {
-    console.error("SMTP ERROR:", err);
-    return res.status(500).json({ success: false, message: "Email failed", error: String(err) });
-  }
+    // 1️⃣ Create the document in memory first
+    const inquiry = new Inquiry({
+      name,
+      number,
+      email,
+      course,
+      message,
+      emailResult: {
+        admin: { success: false, info: null, error: null },
+        user: { success: false, info: null, error: null },
+      },
+    });
 
-  // Respond immediately so Render's proxy doesn't time out
-  res.status(202).json({ success: true, message: "Enquiry received. We’ll email you shortly." });
-
-  // Send emails in background with a guard timeout
-  const withTimeout = (p, ms = 15000) =>
-    Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("SMTP timeout")), ms))]);
-
-  try {
-    await Promise.allSettled([
+    // 2️⃣ Send emails
+    const [adminResult, userResult] = await Promise.allSettled([
       withTimeout(transporter.sendMail(adminMail)),
       withTimeout(transporter.sendMail(userMail)),
     ]);
+
+    // 3️⃣ Update emailResult properly
+    inquiry.emailResult = {
+      admin: {
+        success: adminResult.status === "fulfilled",
+        info: adminResult.status === "fulfilled" ? adminResult.value : null,
+        error: adminResult.status === "rejected" ? adminResult.reason.message : null,
+      },
+      user: {
+        success: userResult.status === "fulfilled",
+        info: userResult.status === "fulfilled" ? userResult.value : null,
+        error: userResult.status === "rejected" ? userResult.reason.message : null,
+      },
+    };
+
+    // 4️⃣ Set status
+    inquiry.status =
+      inquiry.emailResult.admin.success && inquiry.emailResult.user.success
+        ? "emails_sent"
+        : "emails_failed";
+
+    // 5️⃣ Save after updating emailResult
+    await inquiry.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Inquiry saved and emails sent.",
+      id: inquiry._id,
+    });
   } catch (err) {
-    console.error("SMTP error:", err);
+    console.error("❌ Contact form error:", err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Welcome to API");
-})
+// ---------------------
+// 🗂️ Admin Inquiries (Protected)
+// ---------------------
+app.get("/api/admin/inquiries", adminAuth, async (req, res) => {
+  try {
+    const page = Math.max(1, parseInt(req.query.page || "1", 10));
+    const limit = Math.min(100, parseInt(req.query.limit || "20", 10));
+    const skip = (page - 1) * limit;
+    const search = (req.query.search || "").trim();
 
+    const filter = {};
+    if (search) {
+      const re = new RegExp(search, "i");
+      filter.$or = [{ name: re }, { email: re }, { message: re }, { course: re }];
+    }
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    const [total, items] = await Promise.all([
+      Inquiry.countDocuments(filter),
+      Inquiry.find(filter).sort({ createdAt: -1 }).skip(skip).limit(limit).lean(),
+    ]);
+
+    res.json({ success: true, total, page, pages: Math.ceil(total / limit), items });
+  } catch (err) {
+    console.error("❌ Fetch inquiries error:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
 });
+
+app.get("/api/admin/inquiries/:id", adminAuth, async (req, res) => {
+  try {
+    const doc = await Inquiry.findById(req.params.id).lean();
+    if (!doc) return res.status(404).json({ success: false, message: "Inquiry not found" });
+    res.json({ success: true, item: doc });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+app.delete("/api/admin/inquiries/:id", adminAuth, async (req, res) => {
+  try {
+    await Inquiry.findByIdAndDelete(req.params.id);
+    res.json({ success: true, message: "Inquiry deleted" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+// ---------------------
+app.get("/", (req, res) => {
+  res.send("✅ NIF API is running...");
+});
+
+// ---------------------
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+  })
+  .catch(err => {
+    console.error("❌ Failed to connect to DB:", err);
+    process.exit(1);
+  });

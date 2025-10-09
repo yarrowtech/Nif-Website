@@ -10,6 +10,9 @@ Backend (set these on Render/Heroku):
 - EMAIL_USER: Gmail account used to send mails
 - EMAIL_PASS: Password or app-password for the Gmail account
 - PORT: (optional) Render/Heroku will set this automatically
+ - SENDGRID_API_KEY: (recommended) API key for SendGrid. If set, server will use SendGrid HTTP API.
+ - EMAIL_FROM: Optional default sender address used by SendGrid or SMTP.
+ - DRY_RUN_EMAIL: set to 'true' to log email payloads instead of sending (useful for staging).
 
 Frontend (set these on Vercel/Netlify):
 - VITE_API_BASE_URL: Full URL of the deployed backend (e.g. https://nif-backend.onrender.com)
@@ -35,6 +38,15 @@ Notes and troubleshooting
 - Nodemailer with Gmail may require enabling "Less secure apps" or creating an App Password if the account has 2FA. Prefer creating an App Password and using that as `EMAIL_PASS`.
 - If you plan to use Vercel for both frontend and backend, Vercel's Serverless Functions can be used instead of Render; the current backend is a long-running Express server and maps more naturally to Render/Heroku.
 - Verify CORS if you change domain names; the server currently uses `cors()` with default settings (allows all origins).
+
+SendGrid quick setup
+1. Create a SendGrid account and generate an API key.
+2. In Render, set `SENDGRID_API_KEY` to the key and optionally `EMAIL_FROM`.
+3. Deploy. The server will use SendGrid and avoid SMTP port issues.
+
+Dry-run mode (test without sending)
+1. Set `DRY_RUN_EMAIL=true` in Render or locally (or in your `.env`).
+2. Submit the contact form; the server will log email contents and return success without sending messages.
 
 "Try it" locally
 - Backend: from `/backend` run

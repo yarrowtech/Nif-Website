@@ -1,7 +1,6 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-
-
 // pages
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
@@ -29,6 +28,9 @@ import Gallery from "./pages/Gallery.jsx";
 import OurFaculties from "./pages/OurFaculties.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Terms from "./pages/Terms.jsx";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import InquiriesPage from "./pages/InquiriesPages";
 
 export default function App() {
   return (
@@ -60,13 +62,16 @@ export default function App() {
         <Route path="/ourfaculties" element={<OurFaculties />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-condition" element={<Terms />} />
-
+         <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminDashboard />}/>
+              <Route path="/admin/inquiries" element={<InquiriesPage />} />
+            
       </Route>
     </Routes>
    
       <FloatingActions
         whatsappUrl="https://api.whatsapp.com/send/?phone=919836796000&text&type=phone_number&app_absent=0" // <-- your real link
-        useRouter={true} // set to false if not using react-router
+        useRouter={true} 
       />
    </>
   );

@@ -12,7 +12,7 @@ export default function EnquiryForm() {
 
   const [status, setStatus] = useState("");
 
-  const API_BASE = "https://nif-backend.onrender.com";
+  const API_BASE = "http://localhost:5000";
 
   // log resolved API base for debugging in deployed environments
   if (typeof window !== 'undefined') {
@@ -158,4 +158,3 @@ export default function EnquiryForm() {
     </section>
   );
 }
-
