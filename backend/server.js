@@ -1,7 +1,6 @@
 // server.js
 import express from "express";
 import bodyParser from "body-parser";
-import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
@@ -9,6 +8,7 @@ import bcrypt from "bcryptjs";
 
 import connectDB from "./config/db.js";
 import Inquiry from "./models/Inquiry.js";
+import { DEFAULT_SENDER, sendMail } from "./lib/mailer.js";
 
 dotenv.config();
 const app = express();
@@ -20,28 +20,6 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// ---------------------
-// ✅ Nodemailer setup
-// ---------------------
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
-});
-
-transporter.verify()
-  .then(() => console.log("✅ SMTP server is ready"))
-  .catch(err => console.error("❌ SMTP verification failed:", err));
-
-// Helper to timeout long email sends
-const withTimeout = (promise, ms = 15000) =>
-  Promise.race([
-    promise,
-    new Promise((_, reject) => setTimeout(() => reject(new Error("SMTP timeout")), ms)),
-  ]);
-
 // ---------------------
 // 🔐 Admin Auth Middleware
 // ---------------------
@@ -130,69 +108,91 @@ app.post("/api/contact", async (req, res) => {
     <p>Best regards,<br/>NIF Team</p>
   `;
 
+  const adminRecipient = process.env.ADMIN_EMAIL || DEFAULT_SENDER;
+
   const adminMail = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    from: DEFAULT_SENDER,
+    to: adminRecipient,
     subject: `New Inquiry: ${safeCourse}`,
     html: adminHtml,
     replyTo: trimmedEmail,
   };
 
   const userMail = {
-    from: process.env.EMAIL_USER,
+    from: DEFAULT_SENDER,
     to: trimmedEmail,
     subject: "Thank you for contacting NIF",
     html: userHtml,
   };
 
   try {
-    // 1️⃣ Create the document in memory first
-    const inquiry = new Inquiry({
+    // 1️⃣ Persist the inquiry immediately (defaults set pending status)
+    const inquiry = await Inquiry.create({
       name: trimmedName,
       number: trimmedNumber,
       email: trimmedEmail,
       course: safeCourse,
       message: safeMessage,
-      emailResult: {
-        admin: { success: false, info: null, error: null },
-        user: { success: false, info: null, error: null },
-      },
     });
 
-    // 2️⃣ Send emails
-    const [adminResult, userResult] = await Promise.allSettled([
-      withTimeout(transporter.sendMail(adminMail)),
-      withTimeout(transporter.sendMail(userMail)),
-    ]);
-
-    // 3️⃣ Update emailResult properly
-    inquiry.emailResult = {
-      admin: {
-        success: adminResult.status === "fulfilled",
-        info: adminResult.status === "fulfilled" ? adminResult.value : null,
-        error: adminResult.status === "rejected" ? adminResult.reason.message : null,
-      },
-      user: {
-        success: userResult.status === "fulfilled",
-        info: userResult.status === "fulfilled" ? userResult.value : null,
-        error: userResult.status === "rejected" ? userResult.reason.message : null,
-      },
-    };
-
-    // 4️⃣ Set status
-    inquiry.status =
-      inquiry.emailResult.admin.success && inquiry.emailResult.user.success
-        ? "emails_sent"
-        : "emails_failed";
-
-    // 5️⃣ Save after updating emailResult
-    await inquiry.save();
-
+    // Respond to client right away to avoid frontend timeouts
     res.status(200).json({
       success: true,
-      message: "Inquiry saved and emails sent.",
+      message: "Inquiry received. We'll be in touch shortly.",
       id: inquiry._id,
+      status: inquiry.status,
+      emailStatus: "pending",
     });
+
+    // Send emails asynchronously and update status/emailResult
+    void (async () => {
+      try {
+        const [adminResult, userResult] = await Promise.allSettled([
+          sendMail(adminMail),
+          sendMail(userMail),
+        ]);
+
+        const emailResult = {
+          admin: {
+            success: adminResult.status === "fulfilled",
+            info: adminResult.status === "fulfilled" ? adminResult.value : null,
+            error:
+              adminResult.status === "rejected"
+                ? adminResult.reason?.message || String(adminResult.reason)
+                : null,
+          },
+          user: {
+            success: userResult.status === "fulfilled",
+            info: userResult.status === "fulfilled" ? userResult.value : null,
+            error:
+              userResult.status === "rejected"
+                ? userResult.reason?.message || String(userResult.reason)
+                : null,
+          },
+        };
+
+        const allEmailsSent = emailResult.admin.success && emailResult.user.success;
+        const nextStatus = allEmailsSent ? "emails_sent" : "emails_failed";
+
+        if (!allEmailsSent) {
+          console.warn("⚠️ One or more inquiry emails failed", emailResult);
+        }
+
+        await Inquiry.findByIdAndUpdate(inquiry._id, {
+          emailResult,
+          status: nextStatus,
+        });
+      } catch (emailErr) {
+        console.error("❌ Failed to process enquiry emails", emailErr);
+        await Inquiry.findByIdAndUpdate(inquiry._id, {
+          status: "emails_failed",
+          emailResult: {
+            admin: { success: false, info: null, error: emailErr.message },
+            user: { success: false, info: null, error: emailErr.message },
+          },
+        });
+      }
+    })();
   } catch (err) {
     console.error("❌ Contact form error:", err);
     res.status(500).json({ success: false, message: "Server error" });

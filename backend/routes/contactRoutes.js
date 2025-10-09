@@ -1,6 +1,6 @@
 import express from "express";
-import nodemailer from "nodemailer";
 import Inquiry from "../models/Inquiry.js";
+import { DEFAULT_SENDER, sendMail } from "../lib/mailer.js";
 
 const router = express.Router();
 
@@ -33,15 +33,11 @@ router.post("/", async (req, res) => {
       message: safeMessage,
     });
 
-    // 2️⃣ Send email using Nodemailer
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
-    });
+    const adminRecipient = process.env.ADMIN_EMAIL || DEFAULT_SENDER;
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL,
+    const adminMail = {
+      from: DEFAULT_SENDER,
+      to: adminRecipient,
       subject: `New Course Enquiry from ${trimmedName}`,
       html: `
         <h3>New Enquiry Received</h3>
@@ -51,11 +47,60 @@ router.post("/", async (req, res) => {
         <p><strong>Course:</strong> ${safeCourse}</p>
         <p><strong>Message:</strong> ${safeMessage}</p>
       `,
+      replyTo: trimmedEmail,
     };
 
-    await transporter.sendMail(mailOptions);
+    const userMail = {
+      from: DEFAULT_SENDER,
+      to: trimmedEmail,
+      subject: "Thank you for contacting NIF",
+      html: `
+        <h3>Thank you for reaching out, ${trimmedName}!</h3>
+        <p>We have received your enquiry for ${safeCourse} and will get back to you shortly.</p>
+        <p><strong>Your Message:</strong> ${safeMessage}</p>
+      `,
+    };
 
-    res.status(201).json({ success: true, message: "Enquiry submitted successfully" });
+    const [adminResult, userResult] = await Promise.allSettled([
+      sendMail(adminMail),
+      sendMail(userMail),
+    ]);
+
+    const emailResult = {
+      admin: {
+        success: adminResult.status === "fulfilled",
+        info: adminResult.status === "fulfilled" ? adminResult.value : null,
+        error:
+          adminResult.status === "rejected"
+            ? adminResult.reason?.message || String(adminResult.reason)
+            : null,
+      },
+      user: {
+        success: userResult.status === "fulfilled",
+        info: userResult.status === "fulfilled" ? userResult.value : null,
+        error:
+          userResult.status === "rejected"
+            ? userResult.reason?.message || String(userResult.reason)
+            : null,
+      },
+    };
+
+    const allEmailsSent = emailResult.admin.success && emailResult.user.success;
+    const nextStatus = allEmailsSent ? "emails_sent" : "emails_failed";
+
+    await Inquiry.findByIdAndUpdate(inquiry._id, {
+      emailResult,
+      status: nextStatus,
+    });
+
+    res.status(201).json({
+      success: allEmailsSent,
+      message: allEmailsSent
+        ? "Enquiry submitted and emails sent"
+        : "Enquiry stored, but email delivery failed. Our team will follow up manually.",
+      id: inquiry._id,
+      status: nextStatus,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "Server error" });
