@@ -97,9 +97,12 @@ app.post("/api/admin/login", async (req, res) => {
 app.post("/api/contact", async (req, res) => {
   const { name, number, email, course, message } = req.body;
 
-  if (!name || !number || !email || !course || !message) {
-    return res.status(400).json({ success: false, message: "All fields are required" });
+  if (!name || !number || !email || !course) {
+    return res.status(400).json({ success: false, message: "Missing required fields" });
   }
+
+  const trimmedMessage = typeof message === "string" ? message.trim() : "";
+  const safeMessage = trimmedMessage || "No message provided";
 
   const adminHtml = `
     <h1>New Contact Form Submission</h1>
@@ -107,13 +110,13 @@ app.post("/api/contact", async (req, res) => {
     <p><strong>Number:</strong> ${number}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Course:</strong> ${course}</p>
-    <p><strong>Message:</strong> ${message}</p>
+    <p><strong>Message:</strong> ${safeMessage}</p>
   `;
 
   const userHtml = `
     <h1>Thank you for contacting us, ${name}!</h1>
     <p>We have received your message and will get back to you shortly.</p>
-    <p><strong>Your Message:</strong> ${message}</p>
+    <p><strong>Your Message:</strong> ${safeMessage}</p>
     <br/>
     <p>Best regards,<br/>NIF Team</p>
   `;
@@ -140,7 +143,7 @@ app.post("/api/contact", async (req, res) => {
       number,
       email,
       course,
-      message,
+      message: safeMessage,
       emailResult: {
         admin: { success: false, info: null, error: null },
         user: { success: false, info: null, error: null },

@@ -12,7 +12,9 @@ export default function EnquiryForm() {
 
   const [status, setStatus] = useState("");
 
-  const API_BASE = "http://localhost:5000";
+  const API_BASE =
+    import.meta?.env?.VITE_API_BASE_URL ||
+    (typeof window !== "undefined" ? window.location.origin : "http://localhost:5000");
 
   // log resolved API base for debugging in deployed environments
   if (typeof window !== 'undefined') {
