@@ -97,24 +97,33 @@ app.post("/api/admin/login", async (req, res) => {
 app.post("/api/contact", async (req, res) => {
   const { name, number, email, course, message } = req.body;
 
-  if (!name || !number || !email || !course) {
-    return res.status(400).json({ success: false, message: "Missing required fields" });
+  const trimmedName = typeof name === "string" ? name.trim() : "";
+  const trimmedNumber = typeof number === "string" ? number.trim() : "";
+  const trimmedEmail = typeof email === "string" ? email.trim() : "";
+  const trimmedCourse = typeof course === "string" ? course.trim() : "";
+  const trimmedMessage = typeof message === "string" ? message.trim() : "";
+
+  if (!trimmedName || !trimmedNumber || !trimmedEmail) {
+    return res.status(400).json({
+      success: false,
+      message: "Name, phone number, and email are required",
+    });
   }
 
-  const trimmedMessage = typeof message === "string" ? message.trim() : "";
+  const safeCourse = trimmedCourse || "Not specified";
   const safeMessage = trimmedMessage || "No message provided";
 
   const adminHtml = `
     <h1>New Contact Form Submission</h1>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Number:</strong> ${number}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Course:</strong> ${course}</p>
+    <p><strong>Name:</strong> ${trimmedName}</p>
+    <p><strong>Number:</strong> ${trimmedNumber}</p>
+    <p><strong>Email:</strong> ${trimmedEmail}</p>
+    <p><strong>Course:</strong> ${safeCourse}</p>
     <p><strong>Message:</strong> ${safeMessage}</p>
   `;
 
   const userHtml = `
-    <h1>Thank you for contacting us, ${name}!</h1>
+    <h1>Thank you for contacting us, ${trimmedName}!</h1>
     <p>We have received your message and will get back to you shortly.</p>
     <p><strong>Your Message:</strong> ${safeMessage}</p>
     <br/>
@@ -124,14 +133,14 @@ app.post("/api/contact", async (req, res) => {
   const adminMail = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: `New Inquiry: ${course}`,
+    subject: `New Inquiry: ${safeCourse}`,
     html: adminHtml,
-    replyTo: email,
+    replyTo: trimmedEmail,
   };
 
   const userMail = {
     from: process.env.EMAIL_USER,
-    to: email,
+    to: trimmedEmail,
     subject: "Thank you for contacting NIF",
     html: userHtml,
   };
@@ -139,10 +148,10 @@ app.post("/api/contact", async (req, res) => {
   try {
     // 1️⃣ Create the document in memory first
     const inquiry = new Inquiry({
-      name,
-      number,
-      email,
-      course,
+      name: trimmedName,
+      number: trimmedNumber,
+      email: trimmedEmail,
+      course: safeCourse,
       message: safeMessage,
       emailResult: {
         admin: { success: false, info: null, error: null },

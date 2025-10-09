@@ -8,11 +8,30 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const { name, number, email, course, message } = req.body;
-    if (!name || !number || !email || !course)
-      return res.status(400).json({ success: false, message: "Missing required fields" });
+
+    const trimmedName = typeof name === "string" ? name.trim() : "";
+    const trimmedNumber = typeof number === "string" ? number.trim() : "";
+    const trimmedEmail = typeof email === "string" ? email.trim() : "";
+    const trimmedCourse = typeof course === "string" ? course.trim() : "";
+    const trimmedMessage = typeof message === "string" ? message.trim() : "";
+
+    if (!trimmedName || !trimmedNumber || !trimmedEmail)
+      return res.status(400).json({
+        success: false,
+        message: "Name, phone number, and email are required",
+      });
+
+    const safeCourse = trimmedCourse || "Not specified";
+    const safeMessage = trimmedMessage || "No message provided";
 
     // 1️⃣ Save to MongoDB
-    const inquiry = await Inquiry.create({ name, number, email, course, message });
+    const inquiry = await Inquiry.create({
+      name: trimmedName,
+      number: trimmedNumber,
+      email: trimmedEmail,
+      course: safeCourse,
+      message: safeMessage,
+    });
 
     // 2️⃣ Send email using Nodemailer
     const transporter = nodemailer.createTransport({
@@ -23,14 +42,14 @@ router.post("/", async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.ADMIN_EMAIL,
-      subject: `New Course Enquiry from ${name}`,
+      subject: `New Course Enquiry from ${trimmedName}`,
       html: `
         <h3>New Enquiry Received</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong> ${number}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Course:</strong> ${course}</p>
-        <p><strong>Message:</strong> ${message || "No message provided"}</p>
+        <p><strong>Name:</strong> ${trimmedName}</p>
+        <p><strong>Phone:</strong> ${trimmedNumber}</p>
+        <p><strong>Email:</strong> ${trimmedEmail}</p>
+        <p><strong>Course:</strong> ${safeCourse}</p>
+        <p><strong>Message:</strong> ${safeMessage}</p>
       `,
     };
 
