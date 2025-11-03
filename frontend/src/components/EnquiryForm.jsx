@@ -11,7 +11,7 @@ export default function EnquiryForm() {
   });
 
   const [status, setStatus] = useState("");
- const API_BASE = "http://localhost:8080";
+ const API_BASE = "http://localhost:5000";
   // log resolved API base for debugging in deployed environments
   if (typeof window !== 'undefined') {
     // eslint-disable-next-line no-console
