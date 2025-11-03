@@ -16,7 +16,7 @@ export default function Contact() {
 
   // optional: use env for API base
   const API_BASE =
-    import.meta?.env?.VITE_API_BASE_URL || "https://nif-backend.onrender.com";
+    import.meta.env.VITE_BACKEND_URL || "https://nif-backend.onrender.com";
 
   if (typeof window !== 'undefined') {
     console.info('Contact page API_BASE =', API_BASE);

@@ -19,7 +19,7 @@ export default function InquiriesPage() {
       }
 
       const res = await fetch(
-        `http://localhost:5000/api/admin/inquiries?search=${search}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/inquiries?search=${search}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

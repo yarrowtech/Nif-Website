@@ -202,7 +202,7 @@ const _handleEnquirySubmit = (e) => {
 
   // optional: use env for API base
   const API_BASE =
-    import.meta?.env?.VITE_API_BASE_URL || "https://nif-backend.onrender.com";
+    import.meta.env.VITE_BACKEND_URL || "https://nif-backend.onrender.com";
 
   if (typeof window !== 'undefined') {
     console.info('RetailManagement API_BASE =', API_BASE);

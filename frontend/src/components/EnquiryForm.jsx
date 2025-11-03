@@ -11,11 +11,12 @@ export default function EnquiryForm() {
   });
 
   const [status, setStatus] = useState("");
- const API_BASE = "http://localhost:5000";
+  //  const API_BASE = "http://localhost:5000";
+  const API_BASE = import.meta.env.VITE_BACKEND_URL;
   // log resolved API base for debugging in deployed environments
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     // eslint-disable-next-line no-console
-    console.info('EnquiryForm API_BASE =', API_BASE);
+    console.info("EnquiryForm API_BASE =", API_BASE);
   }
 
   const [isSending, setIsSending] = useState(false);
@@ -54,22 +55,28 @@ export default function EnquiryForm() {
 
       if (res.ok && result.success) {
         setStatus("✅ Enquiry sent successfully!");
-        setFormData({ name: "", number: "", email: "", course: "", message: "" });
+        setFormData({
+          name: "",
+          number: "",
+          email: "",
+          course: "",
+          message: "",
+        });
       } else {
         const msg = result?.message || `Server returned ${res.status}`;
         setStatus(`❌ ${msg}`);
         // eslint-disable-next-line no-console
-        console.warn('EnquiryForm failed:', res.status, result);
+        console.warn("EnquiryForm failed:", res.status, result);
       }
     } catch (error) {
       // distinguish abort
-      if (error.name === 'AbortError') {
-        setStatus('⚠️ Request timed out. Try again later.');
+      if (error.name === "AbortError") {
+        setStatus("⚠️ Request timed out. Try again later.");
       } else {
         setStatus(`⚠️ Network or server error: ${error.message || error}`);
       }
       // eslint-disable-next-line no-console
-      console.error('EnquiryForm error:', error);
+      console.error("EnquiryForm error:", error);
     } finally {
       setIsSending(false);
     }
@@ -145,14 +152,18 @@ export default function EnquiryForm() {
             type="button"
             onClick={handleSubmit}
             disabled={isSending}
-            className={`bg-neutral-900 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-md shadow transition ${isSending ? 'opacity-60 cursor-wait' : 'hover:bg-neutral-800'}`}
+            className={`bg-neutral-900 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-md shadow transition ${
+              isSending ? "opacity-60 cursor-wait" : "hover:bg-neutral-800"
+            }`}
           >
-            {isSending ? 'Sending...' : 'Submit'}
+            {isSending ? "Sending..." : "Submit"}
           </button>
         </div>
       </div>
 
-      {status && <p className="text-center text-white mt-4 font-medium">{status}</p>}
+      {status && (
+        <p className="text-center text-white mt-4 font-medium">{status}</p>
+      )}
     </section>
   );
 }
