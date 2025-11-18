@@ -15,7 +15,7 @@ import asadullah from "../assets/faculties/asadullah.jpg";
 import sudeshna from "../assets/faculties/sudheshna.jpg";
 import carlose from "../assets/faculties/carlose.jpg";
 import shashank from "../assets/faculties/Shashank.jpg";
-import nisha from "../assets/faculties/nisha.jpg";
+import nisha from "../assets/faculties/alankrita.png";
 
 export default function About() {
   const facultyRef = useRef(null);
@@ -55,18 +55,15 @@ export default function About() {
   const faculties = [
     { name: "Dr. Mainak Mitra", role: "Academic Head", img: mainak },
     { name: "Subhasish Samajpati", role: "Head of Dept, CAD", img: subhasish },
-    { name: "Aloke Banerjee", role: "Faculty, Visual Design FD", img: aloke },
-    { name: "Mr. Amit Sinha", role: "Faculty‑CAD, Marketing and Social Media Co‑ordinator", img: amit },
+    { name: "Aloke Banerjee", role: "Promotion Manager, Faculty, Visual Design FD", img: aloke },
     { name: "Mr. Nirmal Chandra Hembrom", role: "Head of Dept, Fashion", img: nirmal },
     { name: "Sk. Asadullah", role: "Faculty, Pattern Making", img: asadullah },
     { name: "Mrs. Sudheshna Sil", role: "Faculty, Textile Design", img: sudeshna },
     { name: "Mr. Carlose Bishal Rodrigues", role: "Head of Dept., Interior Design", img: carlose },
     { name: "Mr. Shashank Sutradhar", role: "Faculty, Interior Design", img: shashank},
-    { name: "Ms. Nisha Singh", role: "Faculty, Fashion Design", img: nisha},
-
-
-
+    { name: "Mrs. Alankrita", role: "Faculty,Design & Surface ornamentation", img: nisha},
   ];
+
 
 const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -56,8 +56,7 @@ import jyoti from "../assets/testimonials/jyoti.jpg";
 import manzima from "../assets/testimonials/manzima.jpg";
 import namrata from "../assets/testimonials/namrata.jpg";
 import nimisha from "../assets/testimonials/nimisha.jpg";
-// If you intend to use the URL of that asset, use:
-// import brochure from "/Brochure/NIF-GLOBAL-lINDSAY-STREET.pdf?url"
+import brochure from "../../src/Brochure/NIF-GLOBAL-LINDSAY-STREET.pdf";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade , FreeMode } from "swiper/modules";
 
@@ -305,52 +304,46 @@ export default function HomePage() {
   return (
     <div className="font-sans text-gray-800">
     {/* Hero Section */}
-    <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh]">
-    <Swiper
-      modules={[Autoplay, EffectFade]}
-      effect="fade"
-      autoplay={{
-        delay: 2500, // 2.5s fade duration
-        disableOnInteraction: false,
-      }}
-      loop={true}
-      allowTouchMove={true} // ✅ enables swipe on mobile
-      speed={1000} // fade speed in ms
-      className="w-full h-full"
-    >
-      <SwiperSlide>
+<section
+  className="
+    relative w-full 
+    h-[50vh] sm:h-[55vh] md:h-[80vh] 
+    mt-0  
+    z-0
+  "
+>
+  <Swiper
+    modules={[Autoplay, EffectFade]}
+    effect="fade"
+    autoplay={{
+      delay: 2500,
+      disableOnInteraction: false,
+    }}
+    loop={true}
+    allowTouchMove={true}
+    speed={1000}
+    className="w-full h-full"
+  >
+    {[fourthpic, thirdpic, secondpic, firstpic].map((pic, i) => (
+      <SwiperSlide key={i}>
         <img
-          src={fourthpic}
-          alt="Slide 1"
-          className="w-full h-full object-cover"
+          src={pic}
+          alt={`Slide ${i + 1}`}
+          className="
+            w-full h-full
+            object-contain md:object-cover
+            transition-transform duration-700 ease-in-out
+            bg-transparent
+          "
         />
       </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={thirdpic}
-          alt="Slide 2"
-          className="w-full h-full object-cover"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={secondpic}
-          alt="Slide 3"
-          className="w-full h-full object-cover"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src={firstpic}
-          alt="Slide 4"
-          className="w-full h-full object-cover"
-        />
-      </SwiperSlide>
-    </Swiper>
-  </section>
+    ))}
+  </Swiper>
+</section>
+
 
    {/* About Section */}
-<section className="py-5 px-4 text-left mx-2">
+<section className="py-5 px-4 text-left mx-2 ">
   <h1 className="font-poppins text-2xl md:text-4xl font-bold text-gray-900 mb-6">
     Best Fashion and Interior{" "}
     <span className="text-red-600">Design Institute in Kolkata</span>
@@ -568,7 +561,7 @@ export default function HomePage() {
   {/* Brochure Button */}
   <div className="flex justify-center py-10 sm:py-14 px-4">
     <a
-  href="/Brochure/NIF-GLOBAL-lINDSAY-STREET.pdf?url"
+      href={brochure}
       download="NIF-GLOBAL-LINDSAY-STREET.pdf"
       className="font-poppins flex items-center px-6 sm:px-7 py-2 sm:py-3 bg-[#e94e2b] text-white font-semibold gap-2 hover:bg-red-700 transition text-sm sm:text-base"
     >
