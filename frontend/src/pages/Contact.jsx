@@ -1,7 +1,12 @@
 // Contact.jsx
 import React, { useState } from "react";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 // If you intend to use the URL of that asset, use:
 // import brochure from "/Brochure/NIF-GLOBAL-lINDSAY-STREET.pdf?url";
+
 
 export default function Contact() {
   // --- Form state (MUST match backend keys) ---
@@ -69,6 +74,9 @@ export default function Contact() {
   };
 
   return (
+    <>
+    <Header />
+    <Navbar />
     <div className="font-poppins text-gray-900">
      {/* Hero Section */}
   <header className="relative">
@@ -278,6 +286,8 @@ export default function Contact() {
 
       </main>
     </div>
+    <Footer />
+    </>
   );
 }
 

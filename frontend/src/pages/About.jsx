@@ -1,6 +1,8 @@
 // src/pages/About.jsx
 import { useRef , useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { FiCheck } from "react-icons/fi";
 import { BiCheckSquare } from "react-icons/bi";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
@@ -20,6 +22,7 @@ import nisha from "../assets/faculties/alankrita.png";
 export default function About() {
   const facultyRef = useRef(null);
   const navigate = useNavigate();
+
 
   const bullets = [
     "Over 30 years of Academic Excellence",
@@ -89,7 +92,29 @@ const scrollToIndex = (index) => {
   setCurrentIndex(index);
 };
 
+
+
   return (
+  <>
+  <Helmet>
+  <title>About NIF Kolkata Lindsay Campus | Professional Design Institute in Kolkata</title>
+
+  <meta 
+    name="description" 
+    content="Discover NIF Kolkata Lindsay Campus, a leading professional design institute in Kolkata offering creative fashion and interior design education with global exposure." 
+  />
+
+  <meta 
+    name="keywords" 
+    content="Design institute in Kolkata, Fashion design institute Kolkata, Interior design institute Kolkata" 
+  />
+
+  <link 
+    rel="canonical" 
+    href="https://nifglobalkolkatalindsay.com/about-nif-kolkata-lindsay-campus/" 
+  />
+</Helmet>
+
    <section className="font-poppins">
   {/* Top banner */}
   <div className="relative w-full h-[180px] sm:h-[220px] md:h-[260px] lg:h-[295px]">
@@ -111,11 +136,12 @@ const scrollToIndex = (index) => {
   {/* Content container */}
 <div className="max-w-7xl mx-auto mt-6 sm:mt-8 px-3 sm:px-6 py-6 sm:py-10">
   {/* Heading + blue subhead */}
-  <h2 className="text-xl sm:text-[28px] md:text-[35px] font-semibold text-[#e94e2b] text-center sm:text-left leading-snug">
-    About NIF Global Lindsay Street
-  </h2>
+  <h1 className="text-xl sm:text-[28px] md:text-[35px] font-semibold text-[#e94e2b] text-center sm:text-left leading-snug">
+    About NIF Lindsay Campus - Professional Design Institute in Kolkata
+  </h1>
   <p className="text-[14.5px] sm:text-[17px] mt-3 sm:mt-4 text-sky-500 font-bold text-center sm:text-left leading-relaxed">
-    Welcome to NIF Global Lindsay Street – New York Institute of Fashion, where ambition meets expertise.
+      Welcome to NIF Kolkata Lindsay Campus — a professional design institute in Kolkata, 
+  affiliated with the New York Institute of Fashion, where ambition meets expertise.
   </p>
 
 
@@ -163,14 +189,23 @@ const scrollToIndex = (index) => {
   </h3>
 
   <p className="mt-4 text-gray-700 text-[15px] sm:text-[17px] leading-6 sm:leading-7 text-center md:text-left md:-ml-9">
-    NIF Global Lindsay Street offers career-oriented courses on Fashion Design and Interior
-    Design, Management and Beauty Courses in Kolkata. With a legacy of academic excellence
-    for over 30 years, we are committed to provide seamless, top-quality, industry-related,
-    job-oriented design knowledge to our students. With the belief that everyone is creative,
-    we harness their creativity, teach them the skills and inspire these fresh talents to make
-    their marks in this world with knowledge and innovation. As a result, we have a strong alumni
-    of more than ten thousand students, who are making us proud.
-  </p>
+  NIF Global Lindsay Street offers career-oriented courses on{" "}
+  
+  <Link 
+    to="/fashion-design-course-kolkata" 
+    className="font-semibold text-red-500 underline"
+  >
+    Fashion Design
+  </Link>{" "}
+  
+  and Interior Design, Management and Beauty Courses in Kolkata. With a legacy of academic
+  excellence for over 30 years, we are committed to provide seamless, top-quality,
+  industry-related, job-oriented design knowledge to our students. With the belief that
+  everyone is creative, we harness their creativity, teach them the skills and inspire these
+  fresh talents to make their marks in this world with knowledge and innovation. As a result,
+  we have a strong alumni of more than ten thousand students, who are making us proud.
+</p>
+
 
   <p className="mt-3 text-gray-700 text-[15px] sm:text-[17px] leading-6 sm:leading-7 text-center md:text-left md:-ml-9">
     <span className="font-bold text-[#e94e2b]">“Earn while you learn”,</span> is a lucrative offer for our deserving students,
@@ -178,12 +213,22 @@ const scrollToIndex = (index) => {
     only institute with in-house placement opportunities.
   </p>
 
-  <p className="mt-3 text-gray-700 text-[15px] sm:text-[17px] leading-6 sm:leading-7 text-center md:text-left md:-ml-9">
-    We also take pride in offering <span className="font-semibold">lifetime placement assistance</span> to budding designers,
-    guiding them into the international job market, and helping them excel in fashion and interior design.
-    Transform into a skilled Fashion/Interior Designer at NIF Global Lindsay Street with accomplished
-    faculty, an industry-oriented syllabus, and world class celebrity mentors.
-  </p>
+ <p className="mt-3 text-gray-700 text-[15px] sm:text-[17px] leading-6 sm:leading-7 text-center md:text-left md:-ml-9">
+  We also take pride in offering{" "}
+  
+  <Link 
+    to="/placement" 
+    className="font-semibold text-red-500 underline"
+  >
+    lifetime placement assistance
+  </Link>{" "}
+  
+  to budding designers, guiding them into the international job market, and helping them
+  excel in fashion and interior design. Transform into a skilled Fashion/Interior Designer
+  at NIF Global Lindsay Street with accomplished faculty, an industry-oriented syllabus,
+  and world class celebrity mentors.
+</p>
+
 
 
 {/* What makes NIF best */}
@@ -201,6 +246,7 @@ const scrollToIndex = (index) => {
         <span className="mt-[4px] sm:mt-[6px] text-[#e94e2b] flex-shrink-0">
           <BiCheckSquare className="text-red-500 text-xl sm:text-2xl -mt-0.5" />
         </span>
+
         <span
           dangerouslySetInnerHTML={{
             __html: b
@@ -215,6 +261,7 @@ const scrollToIndex = (index) => {
               .replace(/TOMORROW MAKERS/i, "<strong class='font-bold'>TOMORROW MAKERS</strong>")
               .replace(/STYLE DIRECTION/i, "<strong class='font-bold'>STYLE DIRECTION</strong>")
               .replace(/Support Services/i, "<strong class='font-bold'>Support Services</strong>")
+              .replace(/NSDC/g, "<a href='https://nsdcindia.org/' target='_blank' rel='noopener noreferrer' class='text-red-600 underline font-semibold'>NSDC</a>")
           }}
         />
       </li>
@@ -337,10 +384,8 @@ const scrollToIndex = (index) => {
 </div>
       </div>
     </section>
+    </>
   );
 }
 
-/* Add once (e.g., globals.css):
-.no-scrollbar::-webkit-scrollbar{display:none;}
-.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none;}
-*/
+

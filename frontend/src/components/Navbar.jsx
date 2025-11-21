@@ -49,10 +49,10 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-8 font-medium text-[15px]">
-            <NavLink to="/" className={({ isActive }) => (isActive ? active : linkBase)}>Home</NavLink>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? active : linkBase)}>About Us</NavLink>
-            <NavLink to="/fashion-design" className={({ isActive }) => (isActive ? active : linkBase)}>Fashion Design</NavLink>
-            <NavLink to="/interior-design" className={({ isActive }) => (isActive ? active : linkBase)}>Interior Design</NavLink>
+            <NavLink to="/fashion-interior-design-institute-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Home</NavLink>
+            <NavLink to="/about-nif-kolkata-lindsay-campus" className={({ isActive }) => (isActive ? active : linkBase)}>About Us</NavLink>
+            <NavLink to="/fashion-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Fashion Design</NavLink>
+            <NavLink to="/interior-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Interior Design</NavLink>
             <NavLink to="/retail-management" className={({ isActive }) => (isActive ? active : linkBase)}>Retail Management</NavLink>
 
             {/* Explore NIF trigger */}

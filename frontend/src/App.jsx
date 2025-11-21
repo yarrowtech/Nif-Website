@@ -35,39 +35,52 @@ import InquiriesPage from "./pages/InquiriesPages";
 export default function App() {
   return (
     <>
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/fashion-design" element={<FashionDesign />} />
-        <Route path="/interior-design" element={<InteriorDesign />} />
-        <Route path="/retail-management" element={<RetailManagement />} />
-        <Route path="/explore" element={<ExploreNIF />} />
-        <Route path="/placement" element={<Placement />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/students/success-stories" element={<SuccessStories />} />
-        <Route path="/blog/1" element={<Blog1 />} />
-        <Route path="/blog/2" element={<Blog2 />} />
-        <Route path="/blog/3" element={<Blog3 />} />
-        <Route path="/blog/4" element={<Blog4 />} />
-        <Route path="/blog/5" element={<Blog5 />} />
-        <Route path="/blog/6" element={<Blog6 />} />
-        <Route path="/blog/7" element={<Blog7 />} />
-        <Route path="/blog/8" element={<Blog8 />} />
-        <Route path="/blog/9" element={<Blog9 />} />
-        <Route path="/blog/10" element={<Blog10 />} />
-        <Route path="/ourmentors" element={<OurMentors />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/ourfaculties" element={<OurFaculties />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/terms-and-condition" element={<Terms />} />
-         <Route path="/admin" element={<AdminLogin />} />
-            <Route path="/admin" element={<AdminDashboard />}/>
-              <Route path="/admin/inquiries" element={<InquiriesPage />} />
-            
-      </Route>
-    </Routes>
+   <Routes>
+
+  {/* All pages that use the Layout */}
+  <Route element={<Layout />}>
+
+    <Route path="/fashion-interior-design-institute-kolkata" element={<HomePage />} />
+    <Route path="/about-nif-kolkata-lindsay-campus" element={<About />} />
+    <Route path="/fashion-design-course-kolkata" element={<FashionDesign />} />
+    <Route path="/interior-design-course-kolkata" element={<InteriorDesign />} />
+    <Route path="/retail-management" element={<RetailManagement />} />
+    <Route path="/explore" element={<ExploreNIF />} />
+    <Route path="/placement" element={<Placement />} />
+    <Route path="/blog" element={<Blog />} />
+    <Route path="/students/success-stories" element={<SuccessStories />} />
+
+    {/* Blog pages */}
+    <Route path="/blog/1" element={<Blog1 />} />
+    <Route path="/blog/2" element={<Blog2 />} />
+    <Route path="/blog/3" element={<Blog3 />} />
+    <Route path="/blog/4" element={<Blog4 />} />
+    <Route path="/blog/5" element={<Blog5 />} />
+    <Route path="/blog/6" element={<Blog6 />} />
+    <Route path="/blog/7" element={<Blog7 />} />
+    <Route path="/blog/8" element={<Blog8 />} />
+    <Route path="/blog/9" element={<Blog9 />} />
+    <Route path="/blog/10" element={<Blog10 />} />
+
+    <Route path="/ourmentors" element={<OurMentors />} />
+    <Route path="/gallery" element={<Gallery />} />
+    <Route path="/ourfaculties" element={<OurFaculties />} />
+    <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+    <Route path="/terms-and-condition" element={<Terms />} />
+
+    {/* Admin dashboard (protected layout) */}
+    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+    <Route path="/admin/inquiries" element={<InquiriesPage />} />
+  </Route>
+
+  {/* Contact page — NO LAYOUT */}
+  <Route path="/contact" element={<Contact />} />
+
+  {/* Admin login — NO LAYOUT */}
+  <Route path="/admin" element={<AdminLogin />} />
+
+</Routes>
+
    
       <FloatingActions
         whatsappUrl="https://api.whatsapp.com/send/?phone=919836796000&text&type=phone_number&app_absent=0" // <-- your real link

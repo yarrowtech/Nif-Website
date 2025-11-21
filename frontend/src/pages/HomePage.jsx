@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import EnquiryForm from "../components/EnquiryForm";
@@ -123,6 +125,8 @@ const mentors = [
 ];
 
 
+
+
 const LazyImage = ({ src, alt, className }) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef();
@@ -169,6 +173,8 @@ export default function HomePage() {
    const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+    const navigate = useNavigate();
+
 
   const openLightbox = (index) => {
     setCurrentIndex(index);
@@ -186,6 +192,8 @@ export default function HomePage() {
   const showNext = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
+
+ 
 
   
  const TESTIMONIALS = [
@@ -302,6 +310,25 @@ export default function HomePage() {
     setVisibleCount(images.length); // show all when clicked
   };
   return (
+    <>
+     <Helmet>
+        <title>Best Fashion & Interior Design Institute in Kolkata | NIF Global Lindsay Street</title>
+
+        <meta
+          name="description"
+          content="Join the best fashion and interior design institute in Kolkata at NIF Global, Lindsay Street. Get global exposure, expert mentors & 100% placement support."
+        />
+
+        <meta
+          name="keywords"
+          content="Best Fashion and Interior Design Institute in Kolkata, Fashion designing course in Kolkata, Interior designing course in Kolkata"
+        />
+
+        <link
+          rel="canonical"
+          href="https://nifglobalkolkatalindsay.com/fashion-interior-design-institute-kolketa/"
+        />
+      </Helmet>
     <div className="font-sans text-gray-800">
     {/* Hero Section */}
 <section
@@ -343,19 +370,43 @@ export default function HomePage() {
 
 
    {/* About Section */}
-<section className="py-5 px-4 text-left mx-2 ">
-  <h1 className="font-poppins text-2xl md:text-4xl font-bold text-gray-900 mb-6">
+<section className="py-5 px-4 text-left mx-5">
+  <h1 className="font-poppins text-2xl md:text-4xl font-bold text-gray-900 mb-4">
     Best Fashion and Interior{" "}
     <span className="text-red-600">Design Institute in Kolkata</span>
   </h1>
-  <h2 className="font-poppins text-sm md:text-lg text-gray-700 leading-relaxed">
-    NIF Global Lindsay is the top fashion and interior design institute in Kolkata, 
-    West Bengal, which provides best diploma and degree designing course with placement 
-    supports. Contact us today, we give students great opportunities to see iconic 
-    landmarks, learn from the industry's top professionals, and receive a firsthand look 
-    at how things really run in the world of fashion.
+ <h2 className="font-poppins text-sm md:text-lg text-gray-700 leading-relaxed">
+    Leam from industry experts, gain global exposure & guaranteed placements.
   </h2>
+  {/* CTA BUTTON */}
+  <button
+        className="font-poppins bg-red-600 text-white font-semibold px-6 py-2 rounded-md shadow-md hover:bg-red-700 transition-all mt-7 mb-6"
+        onClick={() => navigate("/contact")}
+      >
+        Apply Now for 2025 Admissions
+      </button>
+
+ <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
+  NIF Global Lindsay is a leading fashion design institute in Kolkata,
+  offering diploma and degree programs that blend creativity, innovation,
+  and industry exposure. Our courses help students gain the skills and
+  confidence required to succeed in the global fashion industry.
+  With expert faculty and 100% placement assistance, we ensure every
+  student builds a strong career.
+</p>
+
+<p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
+  As a reputed interior design institute in Kolkata, we train students in
+  creating functional and aesthetic spaces through practical learning,
+  real-world projects, and mentorship from professional designers.
+</p>
+
+<p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
+  Join NIF Global Lindsay — where creativity transforms into a successful career.
+</p>
+
 </section>
+
 {/* Why Choose Section */}
 <section className="py-10 px-4 md:px-8 bg-white">
   <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
@@ -384,6 +435,14 @@ export default function HomePage() {
           </p>
         </li>
 
+          <li className="flex items-start gap-3">
+          <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
+          <p>
+            <span className="font-poppins font-bold">Oppurtunities</span>{" "}
+            Give opputunities to internships and  placements in top fashion and interior design firms.
+          </p>
+        </li>
+
         <li className="flex items-start gap-3">
           <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
           <p>
@@ -392,6 +451,7 @@ export default function HomePage() {
             equipped with cutting-edge technology.
           </p>
         </li>
+
 
         <li className="flex items-start gap-3">
           <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
@@ -663,7 +723,7 @@ export default function HomePage() {
             <img
               key={i}
               src={src}
-              alt={`Runway ${i + 1}`}
+              alt="fashion-interior-design-institute-kolkata"
               onClick={() => openLightbox(i)}
               className="w-full h-auto object-cover hover:opacity-90 transition rounded-lg cursor-pointer"
             />
@@ -721,5 +781,6 @@ export default function HomePage() {
 
 
     </div>
+    </>
   );
 }

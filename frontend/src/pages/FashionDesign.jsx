@@ -1,6 +1,7 @@
 // src/pages/FashionDesign.jsx
 import { BiCheckSquare } from "react-icons/bi";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import heroImg from "../assets/New Folder/about-bg.jpg";
 import courseImg from "../assets/fashiondesigning/fashion1.jpg";
@@ -59,7 +60,22 @@ const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  
+
   return (
+   <>
+  <Helmet>
+  <title>Fashion Design Course in Kolkata | NIF Global Lindsay Street</title>
+
+  <meta 
+    name="description" 
+    content="Enroll in our Fashion Design course in Kolkata at NIF Global Lindsay Street. Hands-on training, global exposure, industry mentors, and guaranteed placement support for aspiring designers." 
+  />
+
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/fashion-design-course-kolkata/" />
+</Helmet>
+
     <section className="font-poppins">
       {/* Hero Section */}
 <div className="-mt-10 relative w-full h-[500px] md:h-[490px] overflow-hidden">
@@ -69,6 +85,9 @@ const scrollToTop = () => {
     className="w-full h-full object-cover [object-position:10%_-12%] scale-110 md:scale-125"
   />
   <div className="absolute inset-0 bg-black/65" />
+
+
+
 
   {/* Hero content */}
   <div className="absolute inset-0 flex items-center px-6 md:px-20">
@@ -166,14 +185,24 @@ const scrollToTop = () => {
 
       {/* Emphasis line */}
       <p className="mt-8 md:mt-5 text-[16px] md:text-[17px] leading-7 text-gray-900">
-        <span className="font-bold italic">
-          Join our fashion design college in Kolkata to bring out your creativity while equipping yourself with
-        </span>
-        <br />
-        <span className="font-extrabold">
-          required technical knowledge and expertise.
-        </span>
-      </p>
+  <Link 
+    to="/contact" 
+    className="font-bold italic text-red-600 hover:underline"
+  >
+    Join our fashion design college in Kolkata
+  </Link>
+  
+  <span className="font-bold italic">
+    {" "}to bring out your creativity while equipping yourself with
+  </span>
+
+  <br />
+
+  <span className="font-extrabold">
+    required technical knowledge and expertise.
+  </span>
+</p>
+
     </div>
 
     {/* RIGHT: Image */}
@@ -243,10 +272,18 @@ const scrollToTop = () => {
 
   {/* Career Options */}
 <div className="-mt-8 w-full py-12 px-5 md:px-21">
-  <h2 className="font-semibold leading-tight text-[28px] md:text-[35px]">
-    What are the career options in{" "}
-    <span className="text-[#e94e2b]">Fashion Design?</span>
-  </h2>
+<h2 className="font-semibold leading-tight text-[28px] md:text-[35px]">
+  What are the career options in{" "}
+  <a
+    href="https://en.wikipedia.org/wiki/Fashion_design"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-[#e94e2b] hover:text-red-600 hover:underline"
+  >
+    Fashion Design?
+  </a>
+</h2>
+
 
   {/* Career list */}
   <ul className="mt-2 md:mt-5 space-y-6 md:space-y-4 text-[17px] md:text-[17px] text-gray-900">
@@ -414,5 +451,6 @@ const scrollToTop = () => {
 </div>
 
     </section>
+    </>
   );
 }

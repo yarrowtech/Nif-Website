@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { BiCheckSquare } from "react-icons/bi";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import posterImg from "../assets/Interior-Design-Course.jpg"; // right poster in first content 
 import whyImg from "../assets/Interior-design-courses-in-kolkata.jpg"
 import heroImg from "../assets/New Folder/about-bg.jpg" // big banner background
@@ -81,12 +83,33 @@ const faqs = [
 
 
   return (
-    <section className="font-poppins text-[#1d1d1f]">
+    <>
+    <Helmet>
+  <title>Interior Design Course in Kolkata | NIF Global Lindsay Street</title>
+
+  <meta
+    name="description"
+    content="Join our Interior Design course in Kolkata at NIF Global Lindsay Street. Learn spatial planning, sustainable design & gain hands-on experience with expert mentors and global exposure."
+  />
+
+  <meta
+    name="keywords"
+    content="Interior design course in Kolkata, NIF Global interior design, best interior design institute in kolkata"
+  />
+
+  {/* Canonical URL */}
+  <link
+    rel="canonical"
+    href="https://nifglobalkolkatalindsay.com/interior-design-course-kolkata/"
+  />
+</Helmet>
+
+  <section className="font-poppins text-[#1d1d1f]">
   {/* ---------- HERO ---------- */}
   <div className="relative w-full h-[320px] md:h-[450px] overflow-hidden">
     <img
       src={heroImg}
-      alt="Interior Design Hero"
+      alt="Interior Design-Course-Kolkata"
       className="w-full h-full object-cover [object-position:50%_center] md:[object-position:10%_-12%] md:scale-170"
     />
     <div className="absolute inset-0 bg-black/70" />
@@ -130,15 +153,19 @@ const faqs = [
   <div className="grid grid-cols-1 md:grid-cols-[1.7fr_1fr] gap-6 md:gap-12 mt-6 items-start">
     {/* LEFT text */}
     <div className="text-[#2b2b2b] text-[14px] sm:text-[15px] md:text-[15.5px] leading-6 sm:leading-7 md:leading-8 md:-ml-3">
-      <p className="mt-1 mb-5 sm:mb-6 text-[14px] sm:text-[15px] md:text-[16.8px] leading-6 sm:leading-7 text-[#333] md:-mr-95">
-        NIF Global Lindsay is the top interior design institute in Kolkata, West
-        Bengal. We have been shaping dreams, nurturing talent, and making it
-        happen for the interior design enthusiasts with our well-drafted courses
-        in interior designing. Welcome to NIF Global Lindsay, a top-rated
-        interior design college in Kolkata. Gain the right knowledge, expertise,
-        attitude and aptitude to make a flourishing career in interior designing
-        with us by your side.
-      </p>
+     <p className="mt-1 mb-5 sm:mb-6 text-[14px] sm:text-[15px] md:text-[16.8px] leading-6 sm:leading-7 text-[#333] md:-mr-95">
+  NIF Global Lindsay is the top interior design institute in Kolkata, West
+  Bengal. We have been shaping dreams, nurturing talent, and making it
+  happen for the interior design enthusiasts with our well-drafted courses
+  in interior designing. 
+  <Link to="/fashion-interior-design-institute-kolkata" className="text-red-500 hover:underline">
+    Welcome to NIF Global Lindsay
+  </Link>
+  , a top-rated interior design college in Kolkata. Gain the right knowledge, 
+  expertise, attitude and aptitude to make a flourishing career in interior designing 
+  with us by your side.
+</p>
+
       <p className="mb-5 sm:mb-6 md:text-[16.8px] md:mr-55">
         With global mentors on board, state-of-the-art infrastructure, rich
         experience of honing talent for 30 years and so much more – we are here
@@ -177,9 +204,17 @@ const faqs = [
       </ul>
 
       <p className="mt-5 md:text-[16.8px] md:-ml-10 text-center md:text-left">
-        National Skill Development Corporation (NSDC) and Medhavi Skills University
-        (MSU) certify all these courses:
-      </p>
+  <a
+    href=" https://nsdcindia.org/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-red-500 hover:underline"
+  >
+    National Skill Development Corporation (NSDC)
+  </a>{" "}
+  and Medhavi Skills University (MSU) certify all these courses:
+</p>
+
       <ul className="mt-6 sm:mt-7 space-y-2 text-[14px] sm:text-[15px] md:text-[16.8px] md:-ml-2">
         {[
           "4 Year Super Specialization Certificate in Interior Design",
@@ -200,7 +235,7 @@ const faqs = [
     <div className="w-full md:w-[600px] md:pr-0 justify-self-center md:justify-self-end md:mt-10 lg:mt-30 md:-ml-55">
       <img
         src={posterImg}
-        alt="Interior Design Admissions Poster"
+        alt="Industry-expert-interior-design"
         className="w-full sm:w-[450px] md:w-[650px] h-auto md:h-[450px] object-cover shadow-md mx-auto"
       />
     </div>
@@ -330,7 +365,7 @@ const faqs = [
           <img
             key={i}
             src={src}
-            alt={`creativity${i + 1}`}
+            alt="Interior-design-students-practicing-space-planning-NIF-Global Kolkata"
             onClick={() => openLightbox(i)}
             className="w-full mb-3 shadow-md hover:opacity-90 transition cursor-pointer break-inside-avoid"
           />
@@ -440,5 +475,6 @@ const faqs = [
 
       </div>
     </section>
+    </>
   );
 }
