@@ -13,10 +13,14 @@ export default function EnquiryForm() {
   const [status, setStatus] = useState("");
   //  const API_BASE = "http://localhost:5000";
   const API_BASE = import.meta.env.VITE_BACKEND_URL;
+//  const API_BASE = "http://localhost:5000";
+ const API_BASE = import.meta.env.VITE_BACKEND_URL;
+// const API_BASE = "https://nifglobalkolkatalindsay.com/api/";
   // log resolved API base for debugging in deployed environments
   if (typeof window !== "undefined") {
     // eslint-disable-next-line no-console
     console.info("EnquiryForm API_BASE =", API_BASE);
+//    console.info('EnquiryForm API_BASE =', API_BASE);
   }
 
   const [isSending, setIsSending] = useState(false);
