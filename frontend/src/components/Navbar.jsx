@@ -53,7 +53,7 @@ export default function Navbar() {
             <NavLink to="/about-nif-kolkata-lindsay-campus" className={({ isActive }) => (isActive ? active : linkBase)}>About Us</NavLink>
             <NavLink to="/fashion-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Fashion Design</NavLink>
             <NavLink to="/interior-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Interior Design</NavLink>
-            <NavLink to="/retail-management" className={({ isActive }) => (isActive ? active : linkBase)}>Retail Management</NavLink>
+            <NavLink to="/retail-management-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Retail Management</NavLink>
 
             {/* Explore NIF trigger */}
             <li className="relative">

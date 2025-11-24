@@ -350,8 +350,8 @@ const faqs = [
     industry. Learn all that you need, to make your mark in the interior design
     domain, winning over all!
   </p>
-
 <div>
+  
   {/* Creativity Insights */}
   <div>
     <h4 className="mt-8 text-[22px] md:text-[35px] font-semibold md:ml-10 text-center md:text-left">

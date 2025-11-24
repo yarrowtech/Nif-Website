@@ -44,7 +44,7 @@ export default function App() {
     <Route path="/about-nif-kolkata-lindsay-campus" element={<About />} />
     <Route path="/fashion-design-course-kolkata" element={<FashionDesign />} />
     <Route path="/interior-design-course-kolkata" element={<InteriorDesign />} />
-    <Route path="/retail-management" element={<RetailManagement />} />
+    <Route path="/retail-management-course-kolkata" element={<RetailManagement />} />
     <Route path="/explore" element={<ExploreNIF />} />
     <Route path="/placement" element={<Placement />} />
     <Route path="/blog" element={<Blog />} />

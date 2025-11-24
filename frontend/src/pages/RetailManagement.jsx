@@ -1,5 +1,6 @@
 // retailmanagement.jsx
 import React, { useMemo, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import aboutbg from "../assets/New Folder/about-bg.jpg";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
@@ -254,6 +255,18 @@ const _handleEnquirySubmit = (e) => {
   };
 
   return (
+    <>
+    <Helmet>
+  <title>Retail Management Course in Kolkata | NIF Global Lindsay Street</title>
+
+  <meta
+    name="description"
+    content="Join our Retail Management course in Kolkata at NIF Global Lindsay Street. Learn retail operations, visual merchandising, e-commerce and optimise your career in the retail sector."
+  />
+
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/retail-management-course-kolkata/" />
+</Helmet>
+
     <div className="min-h-screen w-full bg-white text-gray-900">
   {/* Top banner */}
   <div className="relative w-full h-[260px] md:h-[295px]">
@@ -783,6 +796,7 @@ const _handleEnquirySubmit = (e) => {
   )}
 </section>
     </div>
+    </>
   );
 }
 
