@@ -17,8 +17,8 @@ export default function InquiriesPage() {
         setLoading(false);
         return;
       }
-
       const res = await fetch(
+     const res = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/admin/inquiries?search=${search}`,
         {
           headers: {
