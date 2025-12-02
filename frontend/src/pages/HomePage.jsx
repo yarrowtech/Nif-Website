@@ -375,16 +375,6 @@ export default function HomePage() {
     Best Fashion and Interior{" "}
     <span className="text-red-600">Design Institute in Kolkata</span>
   </h1>
- <h2 className="font-poppins text-sm md:text-lg text-gray-700 leading-relaxed">
-    Leam from industry experts, gain global exposure & guaranteed placements.
-  </h2>
-  {/* CTA BUTTON */}
-  <button
-        className="font-poppins bg-red-600 text-white font-semibold px-6 py-2 rounded-md shadow-md hover:bg-red-700 transition-all mt-7 mb-6"
-        onClick={() => navigate("/contact")}
-      >
-        Apply Now for 2025 Admissions
-      </button>
 
  <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
   NIF Global Lindsay is a leading fashion design institute in Kolkata,
@@ -399,7 +389,7 @@ export default function HomePage() {
   As a reputed interior design institute in Kolkata, we train students in
   creating functional and aesthetic spaces through practical learning,
   real-world projects, and mentorship from professional designers.
-</p>
+</p> 
 
 <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
   Join NIF Global Lindsay — where creativity transforms into a successful career.

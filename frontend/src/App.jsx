@@ -46,7 +46,7 @@ export default function App() {
     <Route path="/interior-design-course-kolkata" element={<InteriorDesign />} />
     <Route path="/retail-management-course-kolkata" element={<RetailManagement />} />
     <Route path="/explore" element={<ExploreNIF />} />
-    <Route path="/placement" element={<Placement />} />
+    <Route path="/placement-support-kolkata" element={<Placement />} />
     <Route path="/blog" element={<Blog />} />
     <Route path="/students/success-stories" element={<SuccessStories />} />
 

@@ -7,6 +7,7 @@ Updated: Removed the white card container. Content is now directly on the page w
 import React, { useState } from 'react';
 import hero from '../assets/Blog/blog4.webp';
 import blog4second from '../assets/Blog/blog4-second.webp';
+import { Helmet } from "react-helmet-async";
 
 export default function Blog4() {
   const [open, setOpen] = useState(null);
@@ -27,6 +28,20 @@ export default function Blog4() {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>Retail Management: The Most Underrated Career in Fashion | Complete 2025 Guide</title>
+  <meta
+    name="description"
+    content="Learn why retail management is one of the most underrated yet high-paying careers in the fashion industry. Explore job roles, salary, and course details."
+  />
+  <meta
+    name="keywords"
+    content="retail management course in Kolkata, career in retail management, fashion retail jobs in India, retail management course details"
+  />
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/blog/retail-management-career-guide" />
+</Helmet>
+
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
 
       {/* HERO */}
@@ -156,5 +171,6 @@ export default function Blog4() {
       </main>
 
     </div>
+    </>
   );
 }

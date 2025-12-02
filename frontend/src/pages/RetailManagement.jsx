@@ -506,7 +506,7 @@ const _handleEnquirySubmit = (e) => {
     <div className="-mt-8 sm:-mt-10 md:justify-self-end">
       <img
         src={runwayImg} // <-- keep your existing variable or replace with your image path
-        alt="Runway"
+        alt="retail-management-course-nif-global"
         className="w-full sm:w-[420px] md:w-105 h-[300px] sm:h-[450px] md:h-[590px] object-cover shadow md:mr-30"
       />
     </div>
@@ -561,7 +561,7 @@ const _handleEnquirySubmit = (e) => {
     <div className="flex justify-center md:justify-start">
       <img
         src={runwayImg2} // replace with your actual image variable/path
-        alt="Runway Portrait"
+        alt="retail-management-course-nif-global"
         className="w-[280px] sm:w-[350px] md:w-[430px] h-[420px] sm:h-[500px] md:h-[550px] object-cover shadow"
       />
     </div>
@@ -784,7 +784,7 @@ const _handleEnquirySubmit = (e) => {
       {/* Image */}
       <img
         src={allGalleryImages[currentIndex]}
-        alt={`Full gallery ${currentIndex + 1}`}
+        alt="retail-management-course-nif-global"
         className="max-h-[80vh] max-w-[90vw] object-contain rounded-lg"
       />
 

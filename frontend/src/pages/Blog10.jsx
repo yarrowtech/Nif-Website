@@ -1,7 +1,25 @@
 import React from "react";
 import blog10cover from "../assets/Blog/blog10.jpg";
+import { Helmet } from "react-helmet-async";
+
+
 export default function Blog10() {
   return (
+    <>
+
+    <Helmet>
+  <title>Top Fashion & Interior Design Trends for 2025 | Student Guide</title>
+  <meta
+    name="description"
+    content="Explore the biggest fashion and interior design trends of 2025. A must-read guide for students preparing for careers in creative design fields."
+  />
+  <meta
+    name="keywords"
+    content="fashion design trends 2025, interior design trends 2025, latest fashion trends for students"
+  />
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/blog/design-trends-2025" />
+</Helmet>
+
     <div className="bg-white text-gray-800 font-sans leading-relaxed">
       
     {/* Gray header band */}
@@ -230,5 +248,6 @@ export default function Blog10() {
         </p>
       </main>
     </div>
+    </>
   );
 }
