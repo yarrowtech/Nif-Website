@@ -2,29 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <!-- Google Tag Manager -->
     <script>
       (function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
-          'gtm.start': new Date().getTime(),
-          event: 'gtm.js'
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js"
         });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
+          dl = l != "dataLayer" ? "&l=" + l : "";
         j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-TTM9MW4P');
+      })(window, document, "script", "dataLayer", "GTM-TTM9MW4P");
     </script>
     <!-- End Google Tag Manager -->
 
+    <!-- Organization Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NIF Global Kolkata Lindsay Street",
+      "url": "https://nifglobalkolkatalindsay.com/",
+      "logo": "https://nifglobalkolkatalindsay.com/logo.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+      }
+    }
+    </script>
+    <!-- End Schema -->
+
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Preloaded Mentor Images -->
     <link rel="preload" as="image" href="/nif-website/src/assets/mentors/ananya.png" />
     <link rel="preload" as="image" href="/nif-website/src/assets/mentors/twinkle-min.png" />
     <link rel="preload" as="image" href="/nif-website/src/assets/mentors/gauri-min.png" />
