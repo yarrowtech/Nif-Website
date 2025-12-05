@@ -12,7 +12,7 @@ export default function EnquiryForm() {
 
   const [status, setStatus] = useState("");
   //  const API_BASE = "http://localhost:5000";
-  const API_BASE = import.meta.env.VITE_BACKEND_URL;
+//  const API_BASE = import.meta.env.VITE_BACKEND_URL;
 //  const API_BASE = "http://localhost:5000";
  const API_BASE = import.meta.env.VITE_BACKEND_URL;
 // const API_BASE = "https://nifglobalkolkatalindsay.com/api/";

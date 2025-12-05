@@ -41,6 +41,7 @@ export default function App() {
   <Route element={<Layout />}>
 
     <Route path="/fashion-interior-design-institute-kolkata" element={<HomePage />} />
+    <Route path="/" element={<HomePage />} />
     <Route path="/about-nif-kolkata-lindsay-campus" element={<About />} />
     <Route path="/fashion-design-course-kolkata" element={<FashionDesign />} />
     <Route path="/interior-design-course-kolkata" element={<InteriorDesign />} />
