@@ -1,6 +1,7 @@
 // Placement.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 import { useEffect, useState, useMemo, useRef } from "react";
 import placementImage from "../assets/New Folder/about-bg.jpg";
 import aishee from "../assets/SuccessStories/nif_placement_AisheeSikder.jpg";
@@ -125,6 +126,21 @@ React.useEffect(() => {
   const brandTickerSpeedSec = 45; // higher = slower
 
   return (
+    <>
+    <Helmet>
+  <title>Placement Support for Fashion & Interior Design Courses in Kolkata | NIF Global Lindsay Street</title>
+
+  <meta
+    name="description"
+    content="Explore career success at NIF Global Lindsay Street, Kolkata – lifetime placement support, internships & brand tie-ups for fashion and interior design graduates."
+  />
+
+  <link
+    rel="canonical"
+    href="https://nifglobalkolkatalindsay.com/placement-support-kolkata/"
+  />
+</Helmet>
+
     <div className="min-h-screen w-full text-gray-900 font-poppins">
   {/* HERO */}
   <header className="relative">
@@ -430,5 +446,6 @@ React.useEffect(() => {
 
       </main>
     </div>
+    </>
   );
 }

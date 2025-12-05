@@ -389,7 +389,7 @@ export default function HomePage() {
   As a reputed interior design institute in Kolkata, we train students in
   creating functional and aesthetic spaces through practical learning,
   real-world projects, and mentorship from professional designers.
-</p>
+</p> 
 
 <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
   Join NIF Global Lindsay — where creativity transforms into a successful career.

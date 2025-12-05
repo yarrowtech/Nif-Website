@@ -1,9 +1,24 @@
 
 import React from 'react';
 import hero from '../assets/Blog/blog6.jpg';
+import { Helmet } from "react-helmet-async";
 
 export default function Blog6() {
   return (
+    <>
+    <Helmet>
+  <title>Best Fashion Design Courses in Kolkata (2025) | Fees, Duration & Career Scope</title>
+  <meta
+    name="description"
+    content="Explore the top fashion design courses in Kolkata with detailed info on fees, duration, eligibility, and career scope in 2025. Ideal for students after Class 12."
+  />
+  <meta
+    name="keywords"
+    content="fashion design course in Kolkata, best fashion design institute in Kolkata, fashion design course fees and duration, career in fashion design after 12"
+  />
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/blog/fashion-design-courses-kolkata-2025" />
+</Helmet>
+
     <div className="min-h-screen bg-white text-gray-900 font-sans">
 
       {/* Sticky right-side apply button */}
@@ -103,5 +118,6 @@ export default function Blog6() {
       </main>
 
     </div>
+    </>
   );
 }

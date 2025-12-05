@@ -25,6 +25,8 @@ import gallery9 from "../assets/runways/gallery11.jpg";
 import gallery10 from "../assets/runways/gallery14.jpg";
 import gallery11 from "../assets/runways/gallery15.jpg";
 import gallery12 from "../assets/runways/gallery31.jpg";
+import { Link } from "react-router-dom";
+
 
 
 const _bullet = (
@@ -272,13 +274,13 @@ const _handleEnquirySubmit = (e) => {
   <div className="relative w-full h-[260px] md:h-[295px]">
     <img
       src={aboutbg} /* replace */
-      alt="About NIF Global"
+      alt="retail-management-course-nif-global"
       className="w-full h-full object-cover [object-position:30%_1%] sm:[object-position:50%_20%]"
     />
     <div className="absolute inset-0 bg-black/60" />
     <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
       <h1 className="font-poppins text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-center">
-        Retail Management Course
+        Retail Management Course In Kolkata
       </h1>
     </div>
   </div>
@@ -300,12 +302,17 @@ const _handleEnquirySubmit = (e) => {
     {/* LEFT: Copy + bullets */}
     <div className="text-gray-800">
       <p className="font-poppins text-[15px] sm:text-[17px] leading-7 sm:leading-8 md:leading-7 sm:md:mr-0 md:-mr-30">
-        Our Retail Management Course at NIF Global Kolkata is built for the future of the
-        fashion, lifestyle and e-Commerce industry. Developed to nurture strategic retail
-        leaders and adaptable brand-builders, the curriculum emphasises core retail
-        expertise&nbsp;<span className="whitespace-nowrap">alongside the best practices</span> of
-        today’s businesses.
-      </p>
+  Our Retail Management Course at{" "}
+  <Link to="/fashion-interior-design-institute-kolkata" className="text-red-500 hover:underline">
+    NIF Global Kolkata
+  </Link>{" "}
+  is built for the future of the fashion, lifestyle and e-Commerce industry.
+  Developed to nurture strategic retail leaders and adaptable brand-builders,
+  the curriculum emphasises core retail expertise&nbsp;
+  <span className="whitespace-nowrap">alongside the best practices</span> of
+  today’s businesses.
+</p>
+
 
       {/* Key Highlights */}
       <div className="mt-4">
@@ -499,7 +506,7 @@ const _handleEnquirySubmit = (e) => {
     <div className="-mt-8 sm:-mt-10 md:justify-self-end">
       <img
         src={runwayImg} // <-- keep your existing variable or replace with your image path
-        alt="Runway"
+        alt="retail-management-course-nif-global"
         className="w-full sm:w-[420px] md:w-105 h-[300px] sm:h-[450px] md:h-[590px] object-cover shadow md:mr-30"
       />
     </div>
@@ -554,7 +561,7 @@ const _handleEnquirySubmit = (e) => {
     <div className="flex justify-center md:justify-start">
       <img
         src={runwayImg2} // replace with your actual image variable/path
-        alt="Runway Portrait"
+        alt="retail-management-course-nif-global"
         className="w-[280px] sm:w-[350px] md:w-[430px] h-[420px] sm:h-[500px] md:h-[550px] object-cover shadow"
       />
     </div>
@@ -562,10 +569,14 @@ const _handleEnquirySubmit = (e) => {
     {/* RIGHT: Heading + points */}
     <div className="mt-8 md:mt-0 md:-ml-11 md:mr-auto">
       <h2 className="font-poppins text-[24px] sm:text-[28px] md:text-[35px] leading-[1.15] font-semibold text-gray-900">
-        Start Your Retail Management
-        <br />
-        Journey with <span className="text-[#e94e2b]">NIF Global Kolkata</span>
-      </h2>
+  Start Your Retail Management
+  <br />
+  Journey with{" "}
+  <Link to="/fashion-interior-design-institute-kolkata" className="text-[#e94e2b] hover:underline">
+    NIF Global Kolkata
+  </Link>
+</h2>
+
 
       <p className="font-poppins mt-6 text-[14px] sm:text-[16px] md:text-[16.8px] leading-7 md:leading-8 text-gray-800">
         Join Kolkata’s leading <span className="font-semibold">Retail Management Institute</span>:
@@ -730,7 +741,7 @@ const _handleEnquirySubmit = (e) => {
       <img
         key={i}
         src={img}
-        alt={`gallery-${i + 1}`}
+        alt="retail-management-course-nif-global-kolkata"
         onClick={() => openLightbox(i)}
         className="w-full mb-3 shadow cursor-pointer hover:opacity-90 transition break-inside-avoid"
       />
@@ -773,7 +784,7 @@ const _handleEnquirySubmit = (e) => {
       {/* Image */}
       <img
         src={allGalleryImages[currentIndex]}
-        alt={`Full gallery ${currentIndex + 1}`}
+        alt="retail-management-course-nif-global"
         className="max-h-[80vh] max-w-[90vw] object-contain rounded-lg"
       />
 

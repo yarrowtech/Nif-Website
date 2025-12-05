@@ -121,7 +121,7 @@ export default function Navbar() {
               </div>
             </li>
 
-            <NavLink to="/placement" className={({ isActive }) => (isActive ? active : linkBase)}>Placement</NavLink>
+            <NavLink to="/placement-support-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Placement</NavLink>
             <NavLink to="/blog" className={({ isActive }) => (isActive ? active : linkBase)}>Blog</NavLink>
             <NavLink to="/contact" className={({ isActive }) => (isActive ? active : linkBase)}>Contact Us</NavLink>
           </ul>

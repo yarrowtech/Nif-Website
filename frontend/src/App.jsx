@@ -39,7 +39,7 @@ export default function App() {
 
   {/* All pages that use the Layout */}
   <Route element={<Layout />}>
-
+    <Route path="/" element={<HomePage />} />
     <Route path="/fashion-interior-design-institute-kolkata" element={<HomePage />} />
     <Route path="/" element={<HomePage />} />
     <Route path="/about-nif-kolkata-lindsay-campus" element={<About />} />
@@ -47,7 +47,7 @@ export default function App() {
     <Route path="/interior-design-course-kolkata" element={<InteriorDesign />} />
     <Route path="/retail-management-course-kolkata" element={<RetailManagement />} />
     <Route path="/explore" element={<ExploreNIF />} />
-    <Route path="/placement" element={<Placement />} />
+    <Route path="/placement-support-kolkata" element={<Placement />} />
     <Route path="/blog" element={<Blog />} />
     <Route path="/students/success-stories" element={<SuccessStories />} />
 
