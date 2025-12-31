@@ -214,19 +214,14 @@ const scrollToTop = () => {
   </Link>
   
   <span className="font-bold italic">
-<<<<<<< HEAD
-    {" "}to bring out your creativity while equipping yourself with
+    {" "}to unleash your creativity while acquiring the technical expertise
   </span>
 
   <br />
 
   <span className="font-extrabold">
-    required technical knowledge and expertise.
+    required to succeed in the competitive fashion world.
   </span>
-=======
-    {" "} to unleash your creativity while acquiring the technical expertise required to succeed in the competitive fashion world
-  </span> 
->>>>>>> fdcf62d (new changes done by salini)
 </p>
 
     </div>
@@ -305,26 +300,16 @@ const scrollToTop = () => {
 </div>
 
 
-  {/* Career Options */}
+{/* Career Options */}
 <div className="-mt-8 w-full py-12 px-5 md:px-21">
 <h2 className="font-semibold leading-tight text-[28px] md:text-[35px]">
-<<<<<<< HEAD
-  What are the career options in{" "}
-=======
   Career Opportunities After a{" "}
->>>>>>> fdcf62d (new changes done by salini)
   <a
     href="https://en.wikipedia.org/wiki/Fashion_design"
     target="_blank"
     rel="noopener noreferrer"
     className="text-[#e94e2b] hover:text-red-600 hover:underline"
   >
-<<<<<<< HEAD
-    Fashion Design?
-  </a>
-</h2>
-
-=======
     Fashion Designing Course
   </a>
 </h2>
@@ -333,7 +318,6 @@ const scrollToTop = () => {
   Completing a <span className="font-semibold">fashion designing course in Kolkata</span> opens doors to diverse and
   exciting career paths, including:
 </p>
->>>>>>> fdcf62d (new changes done by salini)
 
   {/* Career list */}
   <ul className="mt-2 md:mt-5 space-y-6 md:space-y-4 text-[17px] md:text-[17px] text-gray-900">

@@ -5,10 +5,7 @@ import 'dotenv/config';
 const EMAIL_USER = process.env.EMAIL_USER || "";
 const EMAIL_PASS = process.env.EMAIL_PASS || process.env.MAIL_PASS || "";
 const DEFAULT_SENDER = process.env.EMAIL_FROM || EMAIL_USER;
-// <<<<<<< HEAD
-// =======
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || DEFAULT_SENDER;
-// >>>>>>> c22ec7b (logo update)
 const useSendGrid = Boolean(process.env.SENDGRID_API_KEY);
 
 let transporter = null;

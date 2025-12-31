@@ -1,7 +1,7 @@
 // Blog11.jsx
 import React from "react";
-import heroImg from "../assets/blog/blog11.png"; // ✅ Make sure to add the actual image at this path
-import blog11pic from "../assets/blog/blog11-pic.png";
+import heroImg from "../assets/Blog/blog11.png";
+import blog11pic from "../assets/Blog/blog11-pic.png";
 
 export default function Blog11() {
   // ✅ Replace this with your actual image import later

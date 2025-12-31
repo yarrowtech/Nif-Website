@@ -11,20 +11,20 @@ import { BiCheckSquare } from "react-icons/bi";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"; 
-import firstpic from "../assets/nifGlobal_homepageBanner_fashion.webp";
-import secondpic from "../assets/nifGlobal_homepageBanner_interior.webp";
-import thirdpic from "../assets/nifGlobal_homepageBanner_style.webp";
-import fourthpic from "../assets/brandingnifGlobal_homepageBanner_style.webp";
-import globalrunway from "../assets/global_runways.webp";
-import pixi from "../assets/brands/pixi.webp";
-import monacelli from "../assets/brands/mi.webp";
-import fdci from "../assets/brands/fdci.webp";
-import lakme from "../assets/brands/lf.webp";
-import missindia from "../assets/brands/fmi.webp";
-import dubai from "../assets/brands/dfw.webp";
-import nyfy from "../assets/brands/nfw.webp";
-import london from "../assets/brands/lfw.webp";
-import lst from "../assets/brands/lst.webp";
+import firstpic from "../assets/nifGlobal_homepageBanner_fashion.jpg";
+import secondpic from "../assets/nifGlobal_homepageBanner_interior.jpg";
+import thirdpic from "../assets/nifGlobal_homepageBanner_style.jpg";
+import fourthpic from "../assets/brandingnifGlobal_homepageBanner_style.jpg";
+import globalrunway from "../assets/global_runways.jpg";
+import pixi from "../assets/brands/pixi.jpg";
+import monacelli from "../assets/brands/mi.jpg";
+import fdci from "../assets/brands/fdci.jpg";
+import lakme from "../assets/brands/lf.jpg";
+import missindia from "../assets/brands/fmi.jpg";
+import dubai from "../assets/brands/dfw.jpg";
+import nyfy from "../assets/brands/nfw.jpg";
+import london from "../assets/brands/lfw.jpg";
+import lst from "../assets/brands/lst.jpg";
 import manish from "../assets/mentors/manish.jpg";
 import ananya from "../assets/mentors/ananya.jpg";
 import ashley from "../assets/mentors/ashley.jpg";
@@ -376,46 +376,26 @@ export default function HomePage() {
     <span className="text-red-600">Design Institute in Kolkata</span>
   </h1>
 
-<<<<<<< HEAD
- <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
-  NIF Global Lindsay is a leading fashion design institute in Kolkata,
-  offering diploma and degree programs that blend creativity, innovation,
-  and industry exposure. Our courses help students gain the skills and
-  confidence required to succeed in the global fashion industry.
-  With expert faculty and 100% placement assistance, we ensure every
-  student builds a strong career.
-</p>
-
-<p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
-  As a reputed interior design institute in Kolkata, we train students in
-  creating functional and aesthetic spaces through practical learning,
-  real-world projects, and mentorship from professional designers.
-</p> 
-
-<p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
-  Join NIF Global Lindsay — where creativity transforms into a successful career.
-=======
  <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed mt-2">
-  NIF Global Lindsay Street stands out as a trusted fashion design
-  institute in Kolkata, offering career-focused diploma and degree programs designed
-  to nurture creativity and professional excellence. Our industry-oriented fashion design 
-  courses blend practical training, innovation, and real-world exposure, enabling students
-  to build successful careers in the global fashion industry. Guided by experienced faculty and 
-  supported by 100% placement assistance, students gain the confidence and skills needed to thrive.
+  NIF Global Lindsay Street stands out as a trusted fashion design institute in Kolkata,
+  offering career-focused diploma and degree programs that nurture creativity and
+  professional excellence. Our industry-oriented fashion design courses blend practical
+  training, innovation, and real-world exposure so students build successful careers in the
+  global fashion industry. Guided by experienced faculty and backed by 100% placement
+  assistance, learners gain the confidence and skills needed to thrive.
 </p>
 
 <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed mt-3">
-  Recognized as a leading interior design institute in Kolkata, NIF Global Lindsay 
-  emphasizes hands-on learning through live projects, studio-based training, and mentorship 
-  from experienced interior designers. Our programs focus on creating functional, aesthetically 
+  Recognized as a leading interior design institute in Kolkata, NIF Global Lindsay
+  emphasizes hands-on learning through live projects, studio-based training, and mentorship
+  from experienced interior designers. Our programs focus on creating functional, aesthetically
   pleasing spaces while preparing students for real industry challenges.
 </p> 
 
 <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed mt-3">
-  If you're searching for a fashion design institute near me that offers global exposure, 
-  practical learning, and strong career opportunities, NIF Global Lindsay is the perfect place 
-  to turn your creative passion into a profession.
->>>>>>> fdcf62d (new changes done by salini)
+  If you're searching for a "fashion design institute near me" that offers global exposure,
+  practical learning, and strong career opportunities, join NIF Global Lindsay — where
+  creativity transforms into a successful profession.
 </p>
 
 </section>
