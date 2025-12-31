@@ -9,12 +9,25 @@ import blog7 from "../assets/Blog/blog7.jpg";
 import blog8 from "../assets/Blog/blog8.jpg";
 import blog9 from "../assets/Blog/blog9.jpg";
 import blog10 from "../assets/Blog/blog10.jpg";
+import blog11 from "../assets/Blog/blog11.png";
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
 
 
 export default function Blog() {
   const posts = [
+    {
+      id: 10,
+      day: "20",
+      mon: "jun",
+      img: blog11,
+      metaLeft: "Blog",
+      category: "Fashion Designing",
+      title: "Fashion Designing Course After 12th in Kolkata",
+      excerpt:
+        "Fashion design stands out for students who think visually, enjoy creativity, and want a career that blends art, skill, and real-world application.",
+      href: "/blog/11",
+    },
     {
       id: 1,
       day: "30",

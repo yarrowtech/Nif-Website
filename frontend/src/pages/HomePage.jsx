@@ -11,20 +11,20 @@ import { BiCheckSquare } from "react-icons/bi";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"; 
-import firstpic from "../assets/nifGlobal_homepageBanner_fashion.jpg" ;
-import secondpic from "../assets/nifGlobal_homepageBanner_interior.jpg";
-import thirdpic from "../assets/nifGlobal_homepageBanner_style.jpg";
-import fourthpic from "../assets/brandingnifGlobal_homepageBanner_style.jpg";
-import globalrunway from "../assets/global_runways.jpg";
-import pixi from "../assets/brands/pixi.jpg";
-import monacelli from "../assets/brands/mi.jpg";
-import fdci from "../assets/brands/fdci.jpg";
-import lakme from "../assets/brands/lf.jpg";
-import missindia from "../assets/brands/fmi.jpg";
-import dubai from "../assets/brands/dfw.jpg";
-import nyfy from "../assets/brands/nfw.jpg";
-import london from "../assets/brands/lfw.jpg";
-import lst from "../assets/brands/lst.jpg";
+import firstpic from "../assets/nifGlobal_homepageBanner_fashion.webp";
+import secondpic from "../assets/nifGlobal_homepageBanner_interior.webp";
+import thirdpic from "../assets/nifGlobal_homepageBanner_style.webp";
+import fourthpic from "../assets/brandingnifGlobal_homepageBanner_style.webp";
+import globalrunway from "../assets/global_runways.webp";
+import pixi from "../assets/brands/pixi.webp";
+import monacelli from "../assets/brands/mi.webp";
+import fdci from "../assets/brands/fdci.webp";
+import lakme from "../assets/brands/lf.webp";
+import missindia from "../assets/brands/fmi.webp";
+import dubai from "../assets/brands/dfw.webp";
+import nyfy from "../assets/brands/nfw.webp";
+import london from "../assets/brands/lfw.webp";
+import lst from "../assets/brands/lst.webp";
 import manish from "../assets/mentors/manish.jpg";
 import ananya from "../assets/mentors/ananya.jpg";
 import ashley from "../assets/mentors/ashley.jpg";
@@ -376,6 +376,7 @@ export default function HomePage() {
     <span className="text-red-600">Design Institute in Kolkata</span>
   </h1>
 
+<<<<<<< HEAD
  <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
   NIF Global Lindsay is a leading fashion design institute in Kolkata,
   offering diploma and degree programs that blend creativity, innovation,
@@ -393,6 +394,28 @@ export default function HomePage() {
 
 <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed">
   Join NIF Global Lindsay — where creativity transforms into a successful career.
+=======
+ <p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed mt-2">
+  NIF Global Lindsay Street stands out as a trusted fashion design
+  institute in Kolkata, offering career-focused diploma and degree programs designed
+  to nurture creativity and professional excellence. Our industry-oriented fashion design 
+  courses blend practical training, innovation, and real-world exposure, enabling students
+  to build successful careers in the global fashion industry. Guided by experienced faculty and 
+  supported by 100% placement assistance, students gain the confidence and skills needed to thrive.
+</p>
+
+<p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed mt-3">
+  Recognized as a leading interior design institute in Kolkata, NIF Global Lindsay 
+  emphasizes hands-on learning through live projects, studio-based training, and mentorship 
+  from experienced interior designers. Our programs focus on creating functional, aesthetically 
+  pleasing spaces while preparing students for real industry challenges.
+</p> 
+
+<p className="font-poppins text-gray-800 text-sm md:text-lg leading-relaxed mt-3">
+  If you're searching for a fashion design institute near me that offers global exposure, 
+  practical learning, and strong career opportunities, NIF Global Lindsay is the perfect place 
+  to turn your creative passion into a profession.
+>>>>>>> fdcf62d (new changes done by salini)
 </p>
 
 </section>
@@ -410,18 +433,28 @@ export default function HomePage() {
         <li className="flex items-start gap-3">
           <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-4xl" />
           <p>
-            <span className="font-poppins font-bold">Global Runways:</span>{" "}
-            Showcase your talent on international platforms, including
-            prestigious fashion weeks and global events.
+            <span className="font-poppins font-bold">Global Runway Exposure: </span>{" "}
+           Showcase your talent on international platforms,
+            including renowned fashion weeks and prestigious global 
+            design events.
           </p>
         </li>
 
         <li className="flex items-start gap-3">
           <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
           <p>
-            <span className="font-poppins font-bold">International Mentors:</span>{" "}
-            Learn from top industry professionals and renowned global designers
-            who guide you toward excellence.
+            <span className="font-poppins font-bold">International Mentorship:</span>{" "}
+            Learn from top industry experts and global designers who guide you through 
+            advanced techniques, trends, and professional practices.
+          </p>
+        </li>
+
+          <li className="flex items-start gap-3">
+          <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
+          <p>
+            <span className="font-poppins font-bold">Internships & Placement Opportunities:</span>{" "}
+           Gain access to internships and placement opportunities with leading fashion
+            houses and interior design firms, helping you launch a successful career.
           </p>
         </li>
 
@@ -437,8 +470,8 @@ export default function HomePage() {
           <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
           <p>
             <span className="font-poppins font-bold">State-of-the-Art Infrastructure:</span>{" "}
-            Work in world-class labs, design studios, and innovation hubs
-            equipped with cutting-edge technology.
+            Train in world-class design studios, innovation labs, and
+            creative spaces equipped with the latest tools and technologies.
           </p>
         </li>
 
@@ -446,10 +479,11 @@ export default function HomePage() {
         <li className="flex items-start gap-3">
           <BiCheckSquare className="text-red-500 mt-1 text-2xl md:text-3xl" />
           <p>
-            <span className="font-poppins font-bold">Global Exposure:</span>{" "}
-            1. Experience a 1-month stay program in London with workshops and internships. <br />
-            2. Participate in a residential program in Dubai, offering hands-on learning 
-            with global industry leaders and exposure to the dynamic Middle Eastern fashion market.
+            <span className="font-poppins font-bold">Global Exposure Programs:</span>{" "}
+           1. Experience a 1-month London stay program featuring workshops and international internships.
+<span className="block mt-1">
+           2. Participate in a residential Dubai program, offering hands-on learning with global fashion and interior design leaders.
+          </span> 
           </p>
         </li>
       </ul>
@@ -469,17 +503,22 @@ export default function HomePage() {
 
   {/* Text Blocks */}
   <p className="py-6 md:py-10 px-2 md:px-15 text-sm md:text-lg text-gray-800 leading-relaxed">
-    NIF Global Lindsay Street is just an institution; it’s your gateway to becoming a leader in
-    fashion, art, and design on a global scale. Unleash Your{" "}
-    <span className="font-bold">Creativity, Shape Your Career,</span> where{" "}
-    <span className="font-bold">Design, Beauty, and Management</span> Come Together!
+    NIF Global Lindsay Street is more than just a fashion design institute-it is 
+    your gateway to becoming a global leader in fashion, interior design,
+    art, and creative management. We help transform your passion into a 
+    profession through expert training, exposure, and innovation.
   </p>
 
-  <p className="px-2 md:px-15 text-sm md:text-lg text-gray-800 leading-relaxed">
-    Discover the fusion of creativity and innovation at the best design institute in Kolkata, 
-    where you can transform your passion into a career. With our best design courses in Kolkata, 
-    NIF Global Lindsay Street offers hands-on learning and industry expertise. Join us and shape 
-    your future in the world of design!
+  <p className="px-2 md:px-15 text-sm md:text-lg text-gray-800 leading-relaxed -mt-5">
+    Discover the perfect blend of creativity and industry expertise at the
+     best design institute in Kolkata. With our career-focused fashion 
+     design courses and interior design programs, NIF Global Lindsay 
+     Street empowers you to shape a successful future in the world of 
+     design.
+  </p>
+
+  <p className="px-2 md:px-15 text-sm md:text-lg text-gray-800 leading-relaxed mt-4">
+    Unleash your creativity. Shape your career. Design your future with NIF Global Lindsay.
   </p>
   {/* ✅ Explore button moved here below left side bullets */}
       <div className="flex justify-start mt-8">
@@ -555,12 +594,15 @@ export default function HomePage() {
         {/* Circle + Image */}
         <div className="relative w-40 h-40 sm:w-60 sm:h-60 -mt-6 sm:-mt-8 mb-6 overflow-hidden rounded-full">
           <div className="absolute inset-0 rounded-full bg-[#e94e2b]"></div>
-          <LazyImage
-            src={mentor.img}
-            alt={mentor.name}
-            effect="blur"
-            className="w-full h-full object-cover object-top relative z-10 transform translate-y-2"
-          />
+         <picture>
+  <img
+    src={mentor.img}          
+    alt={mentor.name}
+    decoding="async"
+    className="w-full h-full object-cover object-top relative z-10"
+  />
+</picture>
+
         </div>
 
         <h3 className="font-poppins font-semibold text-xl sm:text-2xl text-center">

@@ -1,5 +1,7 @@
 // src/pages/FashionDesign.jsx
 import { BiCheckSquare } from "react-icons/bi";
+import { BiCheck } from "react-icons/bi";
+import { FaGraduationCap } from "react-icons/fa";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -126,17 +128,25 @@ const scrollToTop = () => {
   </h2>
 
   <p className="mt-5 md:text-[17px] text-gray-700 leading-7">
-    NIF Global Kolkata Lindsay is a trusted name among fashion designing enthusiasts.
-    We are a fashion design institute in Kolkata, West Bengal. With an excellent faculty team,
-    global mentors, industry knowledge, and upgraded infrastructure, we have been nurturing
-    immense talent for 30 years in the field of fashion designing.
+    NIF Global Kolkata Lindsay Street is a reputed fashion design 
+    institute in Kolkata, trusted by aspiring designers for over 
+    three decades. Located in the heart of West Bengal, we have been 
+    shaping creative minds with industry-relevant education, experienced
+    faculty, global mentors, and state-of-the-art infrastructure, 
+    For 30 years, we have consistently nurtured talent and transformed 
+    passion into successful fashion careers.
   </p>
 
   <p className="mt-5 md:text-[17px] text-gray-700 leading-7">
-    NIF Global is ready to hand-hold the next generation of fashion icons so they
-    can channel their passion for fashion designing by gaining the right knowledge and
-    practical skills. Opt for a fashion design course in Kolkata to explore more. We
-    support your big dreams with dedicated placement assistance.
+    As a leading fashion design institute in Kolkata, NIF Global Lindsay 
+    is committed to guiding the next generation of fashion professionals. 
+    Our programs are designed to help students build strong foundations 
+    through practical exposure, creative exploration, and professional 
+    training. Whether you are looking for a fashion course after 12th in 
+    Kolkata or planning to pursue a degree in fashion design in Kolkata, 
+    we offer the right learning environment to support your ambitions, 
+    With dedicated placement assistance we help tum your big dreams into 
+    real career opportunities.
   </p>
 </div>
 
@@ -145,13 +155,14 @@ const scrollToTop = () => {
 <div className="w-full -mt-8 px-6 md:px-20">
   {/* Heading */}
   <h2 className="font-semibold tracking-tight text-[28px] md:text-[35px] leading-tight">
-    Our Fashion Design Courses:{" "}
+    Our Fashion Designing Courses in Kolkata:{" "}
     <span className="text-[#e94e2b]">A Quick Look</span>
   </h2>
 
   {/* Intro line */}
   <p className="mt-3 md:mt-4 font-bold text-[14px] md:text-[18px] text-gray-900">
-    Choose from our fashion designing courses to skyrocket your career. Browse through:
+   Choose from our industry-focused fashion designing courses in Kolkata and take 
+   the first step toward a rewarding career.
   </p>
 
   <div className="mt-6 grid md:grid-cols-[1.2fr_1fr] gap-8 items-start">
@@ -159,26 +170,36 @@ const scrollToTop = () => {
     <div className="max-w-2xl">
       <ul className="space-y-7 md:space-y-3 text-[16px] md:text-[17px] leading-8 md:leading-7 text-gray-800 md:px-7">
         <li className="flex items-start gap-4">
-          <BiCheckSquare className="text-[#e94e2b] text-xl md:text-2xl mt-[2px] shrink-0" />
+          <FaGraduationCap className="text-[#09368a] text-2xl mt-[2px] shrink-0" />
           <span>
-            <span className="font-medium">2 Year M. Voc in Fashion Design</span> – Improve your skills or gain
-            specialization, with insights and <br /> cutting-edge methods related to creative design and industry trends.
+            <span className="font-semibold">2-Year M.Voc in Fashion Design</span> <br />
+            <div className="mt-1 text-sm md:text-[16px]">
+            Enhance your creative skills and gain specialization 
+            with advanced techniques, design innovation,
+            and in-depth exposure to current fashion industry trends.
+            </div> 
           </span>
         </li>
 
         <li className="flex items-start gap-4">
-          <BiCheckSquare className="text-[#e94e2b] text-2xl mt-[2px] shrink-0" />
+          <FaGraduationCap className="text-[#09368a] text-2xl mt-[2px] shrink-0" />
           <span>
-            <span className="font-medium">3 Year B. Voc in Fashion Design</span> – Get practical experience as well
-            as theoretical knowledge, <br /> and enjoy a successful fashion designing career.
+            <span className="font-semibold">3-Year B.Voc in Fashion Design</span> <br />
+            <div className="mt-1 text-sm md:text-[16px]">
+            Gain a perfect balance of practical experience and theoretical knowledge to
+            build a strong and successful fashion designing career.
+            </div>
           </span>
         </li>
 
         <li className="flex items-start gap-4">
-          <BiCheckSquare className="text-[#e94e2b] text-2xl mt-[2px] shrink-0" />
-          <span>
-            <span className="font-medium">4 Year B. Voc in Fashion Design</span> – Get a robust foundation in fashion
-            design, with knowledge <br /> and expertise in all the important areas.
+         <FaGraduationCap className="text-[#09368a] text-2xl mt-[2px] shrink-0" />
+          <span >
+            <span className="font-semibold">4-Year B.Voc in Fashion Design</span> <br /> 
+            <div className="mt-1 text-sm md:text-[16px]">
+            Develop a robust foundation in fashion design with comprehensive training across 
+            all key areas of the industry, preparing you for leadership roles in fashion.
+            </div>
           </span>
         </li>
       </ul>
@@ -193,6 +214,7 @@ const scrollToTop = () => {
   </Link>
   
   <span className="font-bold italic">
+<<<<<<< HEAD
     {" "}to bring out your creativity while equipping yourself with
   </span>
 
@@ -201,6 +223,10 @@ const scrollToTop = () => {
   <span className="font-extrabold">
     required technical knowledge and expertise.
   </span>
+=======
+    {" "} to unleash your creativity while acquiring the technical expertise required to succeed in the competitive fashion world
+  </span> 
+>>>>>>> fdcf62d (new changes done by salini)
 </p>
 
     </div>
@@ -235,33 +261,42 @@ const scrollToTop = () => {
     {/* RIGHT: Bullets */}
     <div className="space-y-6 text-[16px] md:text-[18px] leading-8 text-gray-800 md:pr-10 md:-mr-10 md:-ml-23">
       <p className="-mt-8">
-        Get set for an enviable fashion design career! Enroll in a top fashion design course in Kolkata at NIF
-        <br />
-        Global Lindsay Street – New York Institute of Fashion for:
+        Get ready to build an enviable career by enrolling in a top <span className="font-bold">fashion design course in Kolkata</span> at NIF Global Lindsay Street 
+        - New York Institute of Fashion,
       </p>
 
-      <ul className="space-y-6">
+      <ul className="space-y-4">
         <li className="flex items-start md:px-10 gap-3">
-          <BiCheckSquare className="text-[#e94e2b] text-xl md:text-4xl -mt-[2px]" />
+          <BiCheck className="text-[#e41e1e] text-xl md:text-5xl -mt-[2px]" />
           <span>
-            <span className="font-medium">Top-notch academic setting:</span> We offer you the best ambience to make your
-            mark in the world of fashion designing.
+            <span className="font-semibold">Top-Notch Academic Environment:</span>
+            <div className=" text-md md:text-[16px]">
+            A creative and inspiring learning atmosphere that helps students thrive 
+            and innovate in fashion design.
+            </div>
           </span>
         </li>
 
         <li className="flex items-start md:px-10 gap-3">
-          <BiCheckSquare className="text-[#e94e2b] text-xl md:text-4xl -mt-[2px]" />
+          <BiCheck className="text-[#e41e1e] text-xl md:text-5xl -mt-[2px]" />
           <span>
-            <span className="font-medium">Top-tier faculty:</span> Gain the best training and conquer the design industry
-            with your skills, creativity, and originality.
+            <span className="font-semibold">Expert Faculty & Mentors:</span> 
+            <div className=" text-md md:text-[16px]">
+            Learn from experienced professionals who guide you to master design 
+            concepts, creativity, and originality.
+            </div>
           </span>
         </li>
 
         <li className="flex items-start md:px-10 gap-3">
-          <BiCheckSquare className="text-[#e94e2b] text-xl md:text-4xl -mt-[2px]" />
+          <BiCheck className="text-[#e41e1e] text-xl md:text-7xl -mt-[2px]" />
           <span>
-            <span className="font-medium">Best infrastructure:</span> Learn from experts, train in cutting-edge labs, get
-            honed by mentors, and enjoy the widest industry exposure.
+            <span className="font-semibold">World-Class Infrastructure:</span> 
+            <div className=" text-md md:text-[16px]">
+           Train in advanced labs, modern studios, and creative 
+           spaces while gaining maximum industry exposure through 
+           mentorship and hands-on learning.
+            </div>
           </span>
         </li>
       </ul>
@@ -273,17 +308,32 @@ const scrollToTop = () => {
   {/* Career Options */}
 <div className="-mt-8 w-full py-12 px-5 md:px-21">
 <h2 className="font-semibold leading-tight text-[28px] md:text-[35px]">
+<<<<<<< HEAD
   What are the career options in{" "}
+=======
+  Career Opportunities After a{" "}
+>>>>>>> fdcf62d (new changes done by salini)
   <a
     href="https://en.wikipedia.org/wiki/Fashion_design"
     target="_blank"
     rel="noopener noreferrer"
     className="text-[#e94e2b] hover:text-red-600 hover:underline"
   >
+<<<<<<< HEAD
     Fashion Design?
   </a>
 </h2>
 
+=======
+    Fashion Designing Course
+  </a>
+</h2>
+
+<p className="mt-2 md:mt-3 text-[16px] md:text-[17px] text-gray-800 leading-relaxed">
+  Completing a <span className="font-semibold">fashion designing course in Kolkata</span> opens doors to diverse and
+  exciting career paths, including:
+</p>
+>>>>>>> fdcf62d (new changes done by salini)
 
   {/* Career list */}
   <ul className="mt-2 md:mt-5 space-y-6 md:space-y-4 text-[17px] md:text-[17px] text-gray-900">
