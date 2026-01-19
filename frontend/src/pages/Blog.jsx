@@ -17,9 +17,9 @@ import blogBanner from "../assets/New Folder/about-bg.jpg";
 export default function Blog() {
   const posts = [
     {
-      id: 10,
-      day: "20",
-      mon: "jun",
+      id: 11,
+      day: "19",
+      mon: "jan",
       img: blog11,
       metaLeft: "Blog",
       category: "Fashion Designing",

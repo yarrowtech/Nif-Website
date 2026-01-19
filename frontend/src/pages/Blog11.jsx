@@ -1,7 +1,7 @@
 // Blog11.jsx
 import React from "react";
-import heroImg from "../assets/Blog/blog11.png";
-import blog11pic from "../assets/Blog/blog11-pic.png";
+import heroImg from "../assets/blog/blog11.png"; // ✅ Make sure to add the actual image at this path
+import blog11pic from "../assets/blog/blog11-pic.png";
 
 export default function Blog11() {
   // ✅ Replace this with your actual image import later
@@ -86,11 +86,18 @@ export default function Blog11() {
               </h2>
 
               <p>
-                Students from any academic stream can apply for fashion
-                designing courses after completing higher secondary education.
-                Science, Commerce, and Arts backgrounds are all accepted by most
-                institutes.
-              </p>
+  Students from any academic stream can apply for 
+  <a 
+    href="/fashion-design-course-kolkata"
+    class="text-blue-600 mx-2 underline font-medium"
+  >
+     fashion designing courses
+  </a> 
+  after completing higher secondary education.
+  Science, Commerce, and Arts backgrounds are all accepted by most
+  institutes.
+</p>
+
 
               <ul className="list-disc pl-6 space-y-2">
                 <li>Completion of 10+2 from a recognized board</li>
@@ -155,13 +162,19 @@ export default function Blog11() {
                   </p>
                 </div>
               </div>
+<p>
+  Design aspirants often explore parallel fields as well. Searches
+  for an 
+  <a
+    href="/interior-design-course-kolkata"
+    class="text-blue-600 mx-2 underline font-medium"
+  >
+    interior design institute in Kolkata
+  </a> 
+  are common among students drawn to aesthetics, materials, and structured
+  creativity, since the core design mindset overlaps.
+</p>
 
-              <p>
-                Design aspirants often explore parallel fields as well. Searches
-                for an interior design institute in Kolkata are common among
-                students drawn to aesthetics, materials, and structured
-                creativity, since the core design mindset overlaps.
-              </p>
             </section>
 
             {/* Section */}
@@ -278,10 +291,17 @@ export default function Blog11() {
               </ul>
 
               <p>
-                Many students begin their search with fashion designing institute
-                near me, but successful outcomes usually come from institutes
-                that invest deeply in skill development.
-              </p>
+  Many students begin their search with 
+  <a
+    href="/fashion-design-course-kolkata"
+    class="text-blue-600 mx-2 underline font-medium"
+  >
+    fashion designing institute
+  </a>
+  near me, but successful outcomes usually come from institutes
+  that invest deeply in skill development.
+</p>
+
             </section>
 
             {/* Section */}
