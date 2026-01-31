@@ -67,7 +67,7 @@ const scrollToTop = () => {
   return (
    <>
   <Helmet>
-  <title>Fashion Design Course in Kolkata | NIF Global Lindsay Street</title>
+  <title>Fashion Design Course in Kolkata | NIF Global Kolkata Lindsay Street</title>
 
   <meta 
     name="description" 
@@ -214,14 +214,8 @@ const scrollToTop = () => {
   </Link>
   
   <span className="font-bold italic">
-    {" "}to unleash your creativity while acquiring the technical expertise
-  </span>
-
-  <br />
-
-  <span className="font-extrabold">
-    required to succeed in the competitive fashion world.
-  </span>
+    {" "} to unleash your creativity while acquiring the technical expertise required to succeed in the competitive fashion world
+  </span> 
 </p>
 
     </div>
@@ -300,7 +294,7 @@ const scrollToTop = () => {
 </div>
 
 
-{/* Career Options */}
+  {/* Career Options */}
 <div className="-mt-8 w-full py-12 px-5 md:px-21">
 <h2 className="font-semibold leading-tight text-[28px] md:text-[35px]">
   Career Opportunities After a{" "}

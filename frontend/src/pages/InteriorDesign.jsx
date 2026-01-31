@@ -85,7 +85,7 @@ const faqs = [
   return (
     <>
     <Helmet>
-  <title>Interior Design Course in Kolkata | NIF Global Lindsay Street</title>
+  <title>Interior Design Course in Kolkata | NIF Global KolkataLindsay Street</title>
 
   <meta
     name="description"
