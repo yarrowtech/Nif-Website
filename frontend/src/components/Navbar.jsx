@@ -101,9 +101,9 @@ export default function Navbar() {
                         NIF GLOBAL LINDSAY
                       </h4>
                       <ul className="mt-5 space-y-4 text-md">
-                        <li><a href="/about" className="hover:text-white">Life@Lindsay</a></li>
+                        <li><a href="/about-nif-kolkata-lindsay-campus" className="hover:text-white">Life@Lindsay</a></li>
                         <li><a href="/gallery" className="hover:text-white">Why Choose NIF Global Lindsay Street</a></li>
-                        <li><a href="/about" className="hover:text-white">Accreditation Info</a></li>
+                        <li><a href="/about-nif-kolkata-lindsay-campus" className="hover:text-white">Accreditation Info</a></li>
                         <li><a href="/ourmentors" className="hover:text-white">Celebrity Mentors</a></li>
                         <li><a href="/ourmentors" className="hover:text-white">Global Learning</a></li>
                         <li><a href="/ourmentors" className="hover:text-white">Brands Associated</a></li>
@@ -144,11 +144,11 @@ export default function Navbar() {
 >
   <ul className="flex flex-col gap-4">
     <li><NavLink to="/" className={({ isActive }) => (isActive ? active : linkBase)}>Home</NavLink></li>
-    <li><NavLink to="/about" className={({ isActive }) => (isActive ? active : linkBase)}>About Us</NavLink></li>
-    <li><NavLink to="/fashion-design" className={({ isActive }) => (isActive ? active : linkBase)}>Fashion Design</NavLink></li>
-    <li><NavLink to="/interior-design" className={({ isActive }) => (isActive ? active : linkBase)}>Interior Design</NavLink></li>
-    <li><NavLink to="/retail-management" className={({ isActive }) => (isActive ? active : linkBase)}>Retail Management</NavLink></li>
-    <li><NavLink to="/placement" className={({ isActive }) => (isActive ? active : linkBase)}>Placement</NavLink></li>
+    <li><NavLink to="/about-nif-kolkata-lindsay-campus" className={({ isActive }) => (isActive ? active : linkBase)}>About Us</NavLink></li>
+    <li><NavLink to="/fashion-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Fashion Design</NavLink></li>
+    <li><NavLink to="/interior-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Interior Design</NavLink></li>
+    <li><NavLink to="/retail-management-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Retail Management</NavLink></li>
+    <li><NavLink to="/placement-support-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Placement</NavLink></li>
     <li><NavLink to="/blog" className={({ isActive }) => (isActive ? active : linkBase)}>Blog</NavLink></li>
     <li><NavLink to="/contact" className={({ isActive }) => (isActive ? active : linkBase)}>Contact Us</NavLink></li>
   </ul>
