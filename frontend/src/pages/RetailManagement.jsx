@@ -259,12 +259,17 @@ const _handleEnquirySubmit = (e) => {
   return (
     <>
     <Helmet>
-  <title>Retail Management Course in Kolkata | NIF Global Lindsay Street</title>
+  <title>Retail Management Course in Kolkata | NIF Global Kolkata Lindsay</title>
 
   <meta
     name="description"
-    content="Join our Retail Management course in Kolkata at NIF Global Lindsay Street. Learn retail operations, visual merchandising, e-commerce and optimise your career in the retail sector."
+    content="Join NIF Global Kolkata Lindsay for a career-focused retail management course in Kolkata. Gain industry insights, practical training, and placement support. Enroll today!"
   />
+
+    <meta
+          name="keywords"
+          content="Retail Management Course in Kolkata"
+        />
 
   <link rel="canonical" href="https://nifglobalkolkatalindsay.com/retail-management-course-kolkata/" />
 </Helmet>

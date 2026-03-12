@@ -11,6 +11,7 @@ import sudheshna from "../assets/faculties/sudheshna.jpg";
 import carlose from "../assets/faculties/carlose.jpg";
 import shashank from "../assets/faculties/Shashank.jpg";
 import alankrita from "../assets/faculties/alankrita.png";
+import { Helmet } from "react-helmet-async";
  
 const faculties = [
   { name: "Dr. Mainak Mitra", title: "Academic Head", img: mainak, desc: `Dr. Mainak Mitra holds a Phd in Textile Technology (CU). He is also educated in various other aspects in his field of expertise from India and abroad. He is a patron member of Textile Association of India and Institute of Engineers. Dr. Mitra has a working experience of 18 years in India and Bangladesh in brands like Casablanka, Montecarlo. He also has over 12 years of academic experience in Govt. College of Engineering and Textile Technology in apparel production textile testing. He is a visiting faculty of CU and is an invited lecturer in numerous national and international seminars. Dr. Mitra has a number of publications in National and International peer reviewed journals and also holds a patent on “Breathable Textile”.` },
@@ -26,6 +27,26 @@ const faculties = [
 
 export default function OurFaculties() {
   return (
+    <>
+     <Helmet>
+                    <title>Our Faculties | NIF Global Kolkata Lindsay</title>
+            
+                    <meta
+                      name="description"
+                      content="Meet the expert faculties at NIF Global Kolkata Lindsay. Learn from experienced mentors in fashion, interior design, and retail management."
+                    />
+            
+                    <meta
+                      name="keywords"
+                      content="Our Faculties"
+                    />
+            
+                    <link
+                      rel="canonical"
+                      href="https://nifglobalkolkatalindsay.com/ourfaculties"
+                    />
+              </Helmet>
+    
     <div className="bg-white">
   {/* Banner */}
   <div className="relative h-40 sm:h-52 bg-black flex items-center justify-center px-4">
@@ -66,6 +87,6 @@ export default function OurFaculties() {
     ))}
   </div>
 </div>
-
+</>
   );
 }

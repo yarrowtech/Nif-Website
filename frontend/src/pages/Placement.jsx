@@ -128,16 +128,21 @@ React.useEffect(() => {
   return (
     <>
     <Helmet>
-  <title>Placement Support for Fashion & Interior Design Courses in Kolkata | NIF Global Lindsay Street</title>
+  <title>Placement Support | NIF Global Kolkata Lindsay</title>
 
   <meta
     name="description"
-    content="Explore career success at NIF Global Lindsay Street, Kolkata – lifetime placement support, internships & brand tie-ups for fashion and interior design graduates."
+    content="Discover placement support at NIF Global Kolkata Lindsay. Get career guidance, industry exposure, internships, and job opportunities in fashion and interior design."
+  />
+
+ <meta
+    name="keywords"
+    content="Placement Support"
   />
 
   <link
     rel="canonical"
-    href="https://nifglobalkolkatalindsay.com/placement-support-kolkata/"
+    href="https://nifglobalkolkatalindsay.com/placement-support-kolkata"
   />
 </Helmet>
 

@@ -67,11 +67,16 @@ const scrollToTop = () => {
   return (
    <>
   <Helmet>
-  <title>Fashion Design Course in Kolkata | NIF Global Kolkata Lindsay Street</title>
+  <title>Fashion Design Course in Kolkata | NIF Global Kolkata Lindsay</title>
 
   <meta 
     name="description" 
-    content="Enroll in our Fashion Design course in Kolkata at NIF Global Lindsay Street. Hands-on training, global exposure, industry mentors, and guaranteed placement support for aspiring designers." 
+    content="Join NIF Global Kolkata Lindsay for a professional fashion design course in Kolkata. Get expert training, practical exposure, and strong placement support. Apply now!" 
+  />
+  
+  <meta
+    name="keywords"
+    content="Fashion Design Course in Kolkata"
   />
 
   {/* Canonical URL */}

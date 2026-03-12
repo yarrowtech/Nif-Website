@@ -12,7 +12,7 @@ import blog10 from "../assets/Blog/blog10.jpg";
 import blog11 from "../assets/Blog/blog11.png";
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
-
+import { Helmet } from "react-helmet-async";
 
 export default function Blog() {
   const posts = [
@@ -159,6 +159,26 @@ const ACCENT = "#e94e2b";
 const ACCENT_DARK = "#c63c1f";
 
 return (
+  <>
+    <Helmet>
+    <title>Best Interior Design Institute in Kolkata | Explore Our Blog</title>
+  
+    <meta
+      name="description"
+      content="Explore our blog at NIF Global Kolkata Lindsay, the best interior design institute in Kolkata. Discover design trends, expert tips, and career insights."
+    />
+  
+   <meta
+      name="keywords"
+      content="Interior Design Institute in Kolkata"
+    />
+  
+    <link
+      rel="canonical"
+      href="https://nifglobalkolkatalindsay.com/blog"
+    />
+  </Helmet>
+  
   <div className="min-h-screen w-full text-gray-900 font-poppins">
   {/* Hero */}
   <header className="relative">
@@ -280,5 +300,6 @@ return (
   </a>
 </main>
 </div>
+</>
 );
 }

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 // If you intend to use the URL of that asset, use:
 // import brochure from "/Brochure/NIF-GLOBAL-lINDSAY-STREET.pdf?url";
@@ -75,6 +76,25 @@ export default function Contact() {
 
   return (
     <>
+      <Helmet>
+    <title>Contact Us | NIF Global Kolkata Lindsay</title>
+  
+    <meta
+      name="description"
+      content="Contact NIF Global Kolkata Lindsay for course details, admissions, and career guidance in fashion, interior design, and retail management. Get in touch today!"
+    />
+  
+   <meta
+      name="keywords"
+      content="Contact Us"
+    />
+  
+    <link
+      rel="canonical"
+      href="https://nifglobalkolkatalindsay.com/contact"
+    />
+  </Helmet>
+  
     <Header />
     <Navbar />
     <div className="font-poppins text-gray-900">

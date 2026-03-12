@@ -326,16 +326,16 @@ export default function HomePage() {
   return (
     <>
      <Helmet>
-        <title>NIF Global Kolkata Lindsay Street | Best Fashion & Interior Design Institute</title>
+        <title>Best Fashion and Interior Design Institute in Kolkata | NIF Global Lindsay</title>
 
         <meta
           name="description"
-          content="Join the best fashion and interior design institute in Kolkata at NIF Global, Lindsay Street. Get global exposure, expert mentors & 100% placement support."
+          content="Looking for a top fashion and interior design institute in Kolkata? NIF Global Lindsay offers industry-focused courses, expert faculty, and strong placement support. Apply now!"
         />
 
         <meta
           name="keywords"
-          content="Best Fashion and Interior Design Institute in Kolkata, Fashion designing course in Kolkata, Interior designing course in Kolkata"
+          content="Fashion and Interior Design Institute in Kolkata"
         />
 
         <link

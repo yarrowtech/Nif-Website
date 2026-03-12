@@ -58,7 +58,7 @@ import gallery54 from "../assets/Gallery/gallery54.jpg";
 import gallery55 from "../assets/Gallery/gallery55.jpg";
 import gallery56 from "../assets/Gallery/gallery56.jpg";
 import gallery57 from "../assets/Gallery/gallery57.jpg";
-
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -155,6 +155,26 @@ export default function Gallery() {
   };
 
   return (
+    <>
+          <Helmet>
+                <title>Gallery | NIF Global Kolkata Lindsay</title>
+        
+                <meta
+                  name="description"
+                  content="Explore the gallery of NIF Global Kolkata Lindsay showcasing student projects, fashion shows, interior design work, workshops, and campus activities."
+                />
+        
+                <meta
+                  name="keywords"
+                  content="Gallery"
+                />
+        
+                <link
+                  rel="canonical"
+                  href="https://nifglobalkolkatalindsay.com/gallery"
+                />
+          </Helmet>
+
     <div className="bg-white">
       {/* Header */}
       <div className="relative h-52 bg-black flex items-center justify-center">
@@ -233,5 +253,6 @@ export default function Gallery() {
 )}
 
     </div>
+    </>
   );
 }

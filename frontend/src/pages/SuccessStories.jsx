@@ -23,6 +23,8 @@ import manyavar from "../assets/SuccessStories/placement_brands_manyavar.jpg";
 import decofur from "../assets/SuccessStories/placement_brands_decofur.jpg";
 import raphaaa from "../assets/SuccessStories/placement_brands_rapahaa.jpg";
 
+import { Helmet } from "react-helmet-async";
+
 const STUDENTS = [
   { name: "Aishee Sikder", photo: aishee, companyLogo: devoir },
   { name: "ANKITA ADAK", photo: ankita, companyLogo: sl },
@@ -38,6 +40,26 @@ const STUDENTS = [
 
 export default function SuccessStories() {
   return (
+    <>
+       <Helmet>
+            <title>Success Stories | NIF Global Kolkata Lindsay</title>
+    
+            <meta
+              name="description"
+              content="Explore success stories of NIF Global Kolkata Lindsay students who built successful careers in fashion, interior design, and retail management."
+            />
+    
+            <meta
+              name="keywords"
+              content="Success Stories"
+            />
+    
+            <link
+              rel="canonical"
+              href="https://nifglobalkolkatalindsay.com/students/success-stories"
+            />
+          </Helmet>
+
     <div className="font-poppins text-gray-900">
       {/* ===== Hero ===== */}
       <header className="relative">
@@ -103,5 +125,7 @@ export default function SuccessStories() {
         </div>
       </main>
     </div>
+    </>
   );
 }
+

@@ -97,16 +97,16 @@ const scrollToIndex = (index) => {
   return (
   <>
   <Helmet>
-  <title>About NIF Kolkata Lindsay Campus | Professional Design Institute in Kolkata</title>
+  <title>About Us | Leading Fashion Design Institute in Kolkata</title>
 
   <meta 
     name="description" 
-    content="Discover NIF Kolkata Lindsay Campus, a leading professional design institute in Kolkata offering creative fashion and interior design education with global exposure." 
+    content="Know more about our fashion design institute in Kolkata. Discover our mission, expert faculty, industry exposure, and commitment to creative excellence." 
   />
 
   <meta 
     name="keywords" 
-    content="Design institute in Kolkata, Fashion design institute Kolkata, Interior design institute Kolkata" 
+    content="Fashion Design Institute in Kolkata" 
   />
 
   <link 

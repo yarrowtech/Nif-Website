@@ -85,16 +85,16 @@ const faqs = [
   return (
     <>
     <Helmet>
-  <title>Interior Design Course in Kolkata | NIF Global KolkataLindsay Street</title>
+  <title>Interior Design Course in Kolkata | NIF Global Kolkata Lindsay</title>
 
   <meta
     name="description"
-    content="Join our Interior Design course in Kolkata at NIF Global Lindsay Street. Learn spatial planning, sustainable design & gain hands-on experience with expert mentors and global exposure."
+    content="Enroll at NIF Global Kolkata Lindsay for a professional interior design course in Kolkata. Learn space planning, design concepts, and practical skills with expert guidance. Apply now!"
   />
 
   <meta
     name="keywords"
-    content="Interior design course in Kolkata, NIF Global interior design, best interior design institute in kolkata"
+    content="Interior Design Course in Kolkata"
   />
 
   {/* Canonical URL */}
