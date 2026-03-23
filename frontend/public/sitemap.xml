@@ -1,7 +1,44 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-<url>
-<loc>https://nifglobalkolkatalindsay.com/</loc>
-<lastmod>2026-01-31T08:11:01+00:00</lastmod>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/about-nif-kolkata-lindsay-campus</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/fashion-design-course-kolkata</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/interior-design-course-kolkata</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/retail-management-course-kolkata</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/placement-support-kolkata</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/blog</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nifglobalkolkatalindsay.com/contact</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
 </urlset>

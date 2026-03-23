@@ -32,6 +32,7 @@ import Terms from "./pages/Terms.jsx";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import InquiriesPage from "./pages/InquiriesPages";
+import Blog12 from "./pages/Blog12.jsx";
 
 export default function App() {
   return (
@@ -51,17 +52,19 @@ export default function App() {
     <Route path="/students/success-stories" element={<SuccessStories />} />
 
     {/* Blog pages */}
-    <Route path="/blog/1" element={<Blog1 />} />
-    <Route path="/blog/2" element={<Blog2 />} />
-    <Route path="/blog/3" element={<Blog3 />} />
-    <Route path="/blog/4" element={<Blog4 />} />
-    <Route path="/blog/5" element={<Blog5 />} />
-    <Route path="/blog/6" element={<Blog6 />} />
-    <Route path="/blog/7" element={<Blog7 />} />
-    <Route path="/blog/8" element={<Blog8 />} />
-    <Route path="/blog/9" element={<Blog9 />} />
-    <Route path="/blog/10" element={<Blog10 />} />
-    <Route path="/blog/11" element={<Blog11 />} />
+    <Route path="/InteriorDesign" element={<Blog1 />} />
+    <Route path="/fashiondesign" element={<Blog2 />} />
+    <Route path="/interiordesignprocess" element={<Blog3 />} />
+    <Route path="/TerraFutura" element={<Blog4 />} />
+    <Route path="/Body-PositiveFashionblog/5" element={<Blog5 />} />
+    <Route path="/fashioninstitute" element={<Blog6 />} />
+    <Route path="/interiordesigninginstituteinKolkata" element={<Blog7 />} />
+    <Route path="/fashiondesigncourseKolkata" element={<Blog8 />} />
+    <Route path="/designinstituteinKolkata" element={<Blog9 />} />
+    <Route path="/fashiondesigners" element={<Blog10 />} />
+    <Route path="/fashiondesigncourse" element={<Blog11 />} />
+    <Route path="/fashiondesignskills" element={<Blog12 />} />
+
 
     <Route path="/ourmentors" element={<OurMentors />} />
     <Route path="/gallery" element={<Gallery />} />

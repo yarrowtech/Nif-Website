@@ -9,13 +9,27 @@ import blog7 from "../assets/Blog/blog7.jpg";
 import blog8 from "../assets/Blog/blog8.jpg";
 import blog9 from "../assets/Blog/blog9.jpg";
 import blog10 from "../assets/Blog/blog10.jpg";
-import blog11 from "../assets/Blog/blog11.png";
+import blog11 from "../assets/Blog/blog11.jpg";
+import blog12 from "../assets/Blog/blog12.jpeg";
+
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
 import { Helmet } from "react-helmet-async";
 
 export default function Blog() {
   const posts = [
+      {
+      id: 12,
+      day: "19",
+      mon: "Mar",
+      img: blog12,
+      metaLeft: "Blog",
+      category: "Fashion Designing",
+      title: "7 Skills Every Fashion Design Student Must Learn",
+      excerpt:
+        "Fashion is not just about aesthetics — it is a craft, a language, and a business. Discover the seven essential skills that shape industry-ready designers",
+      href: "/fashiondesignskills",
+    },
     {
       id: 11,
       day: "19",
@@ -23,10 +37,10 @@ export default function Blog() {
       img: blog11,
       metaLeft: "Blog",
       category: "Fashion Designing",
-      title: "Fashion Designing Course After 12th in Kolkata",
+      title: " Fashion Designing Course After 12th in Kolkata: Career, Fees, Eligibility, and What to Expect",
       excerpt:
         "Fashion design stands out for students who think visually, enjoy creativity, and want a career that blends art, skill, and real-world application.",
-      href: "/blog/11",
+      href: "/fashiondesigncourse",
     },
     {
       id: 1,
@@ -39,7 +53,7 @@ export default function Blog() {
         "Eco-Friendly Interior Design: Creating Sustainable Spaces",
       excerpt:
         "Create stylish, sustainable interiors with eco-friendly design tips that reduce waste, save energy, and promote a healthier home environment.",
-      href: "/blog/1",
+      href: "/InteriorDesign",
     },
     {
       id: 2,
@@ -51,7 +65,7 @@ export default function Blog() {
       title: "Plus-Size Style Trends: Embracing Diversity in Fashion",
       excerpt:
         "Looking for the latest plus-size style trends? See how fashion is evolving to celebrate body diversity and empower everyone.",
-      href: "/blog/2",
+      href: "/fashiondesign",
     },
     {
       id: 3,
@@ -64,7 +78,7 @@ export default function Blog() {
         "Integrating AI into Design Processes: A Step-by-Step Guide",
       excerpt:
         "How AI meets design management: explore ways artificial intelligence transforms creative workflows and decision-making.",
-      href: "/blog/3",
+      href: "/interiordesignprocess",
     },
     {
       id: 4,
@@ -76,7 +90,7 @@ export default function Blog() {
       title: "Terra Futura: Sustainable Living Spaces of the Future",
       excerpt:
         "Future homes reimagined—innovative, eco-friendly living spaces designed for a sustainable and smarter tomorrow.",
-      href: "/blog/4",
+      href: "/TerraFutura",
     },
     {
       id: 5,
@@ -88,7 +102,7 @@ export default function Blog() {
       title: "Body-Positive Fashion: Designing for Every Body Type",
       excerpt:
         "Inclusive design tips that empower every body type with silhouettes and fabrics that celebrate all shapes.",
-      href: "/blog/5",
+      href: "/Body-PositiveFashionblog/5",
     },
     {
       id: 6,
@@ -101,7 +115,7 @@ export default function Blog() {
         "Top 5 Fashion Design Institutes in Kolkata You Must Know",
       excerpt:
         "Discover some of Kolkata’s finest fashion design institutes, with world-class education and exposure.",
-      href: "/blog/6",
+      href: "/fashioninstitute",
     },
     {
       id: 7,
@@ -114,7 +128,7 @@ export default function Blog() {
         "Interior Designing Institutes in Kolkata: Learn & Choose",
       excerpt:
         "Interior design blends creativity and function. Here’s how to select the right city and course for you.",
-      href: "/blog/7",
+      href: "/interiordesigninginstituteinKolkata",
     },
     {
       id: 8,
@@ -127,7 +141,7 @@ export default function Blog() {
         "10 Roles to Study in a Fashion Designing Course in…",
       excerpt:
         "From trend research to garment construction—10 key roles every fashion student learns to master.",
-      href: "/blog/8",
+      href: "/fashiondesigncourseKolkata",
     },
     {
       id: 9,
@@ -140,7 +154,7 @@ export default function Blog() {
         "5 Reasons the Best Design Institute in Kolkata Shapes Talent",
       excerpt:
         "From expert mentors to industry exposure—why picking the right institute transforms your career.",
-      href: "/blog/9",
+      href: "/designinstituteinKolkata",
     },
     {
       id: 10,
@@ -152,7 +166,7 @@ export default function Blog() {
       title: "10 Top Abilities of Fashion Designers in India",
       excerpt:
         "Originality, storytelling, market insight—discover the abilities that define India’s top fashion designers.",
-      href: "/blog/10",
+      href: "/fashiondesigners",
     },
   ];
 const ACCENT = "#e94e2b";
