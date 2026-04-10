@@ -62,6 +62,11 @@ import brochure from "../Brochure/NIF-GLOBAL-LINDSAY-STREET.pdf";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade , FreeMode } from "swiper/modules";
 import JsonLd from "../components/JsonLd";
+import {
+  homepageEventSchema,
+  homepageOrganizationSchema,
+  localSeoSchema,
+} from "../utils/schema";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -193,21 +198,6 @@ export default function HomePage() {
   const showNext = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
-
- const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "NIF Global Kolkata Lindsay Street",
-    url: "https://nifglobalkolkatalindsay.com/",
-    logo: "https://nifglobalkolkatalindsay.com/nif-logo-s-black.png",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "127",
-    },
-  };
-
-  
  const TESTIMONIALS = [
     {
       text:
@@ -344,7 +334,9 @@ export default function HomePage() {
         />
       </Helmet>
 
-        <JsonLd id="org-home" data={orgSchema} />
+        <JsonLd id="org-home" data={homepageOrganizationSchema} />
+        <JsonLd id="local-home" data={localSeoSchema} />
+        <JsonLd id="event-home" data={homepageEventSchema} />
 
     <div className="font-sans text-gray-800">
     {/* Hero Section */}

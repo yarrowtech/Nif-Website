@@ -4,6 +4,7 @@ import { BiCheckSquare } from "react-icons/bi";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import JsonLd from "../components/JsonLd";
 import posterImg from "../assets/Interior-Design-Course.jpg"; // right poster in first content 
 import whyImg from "../assets/Interior-design-courses-in-kolkata.jpg"
 import heroImg from "../assets/New Folder/about-bg.jpg" // big banner background
@@ -28,6 +29,12 @@ import interior18 from "../assets/Interior/interior18.jpg";
 import interior19 from "../assets/Interior/interior19.jpg";
 import interior20 from "../assets/Interior/interior20.jpg";
 import interior21 from "../assets/Interior/interior21.jpg";
+import {
+  createBreadcrumbSchema,
+  createCourseSchema,
+  createFaqSchema,
+  SITE_URL,
+} from "../utils/schema";
  // right poster in first content block
 export default function InteriorDesign() {
 const [showMore, setShowMore] = useState(false);
@@ -81,6 +88,23 @@ const faqs = [
 
   const [openFaq, setOpenFaq] = useState(0);
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Courses", url: `${SITE_URL}/interior-design-course-kolkata/` },
+    {
+      name: "Interior Design Course in Kolkata",
+      url: `${SITE_URL}/interior-design-course-kolkata/`,
+    },
+  ]);
+
+  const courseSchema = createCourseSchema({
+    name: "Interior Design Course in Kolkata",
+    description:
+      "Professional interior design course with practical training, industry exposure, and certification.",
+  });
+
+  const faqSchema = createFaqSchema(faqs);
+
 
   return (
     <>
@@ -103,6 +127,9 @@ const faqs = [
     href="https://nifglobalkolkatalindsay.com/interior-design-course-kolkata/"
   />
 </Helmet>
+  <JsonLd id="interior-course" data={courseSchema} />
+  <JsonLd id="interior-breadcrumbs" data={breadcrumbSchema} />
+  <JsonLd id="interior-faqs" data={faqSchema} />
 
   <section className="font-poppins text-[#1d1d1f]">
   {/* ---------- HERO ---------- */}

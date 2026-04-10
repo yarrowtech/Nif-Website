@@ -24,11 +24,13 @@ import Blog8 from "./pages/Blog8.jsx";
 import Blog9 from "./pages/Blog9.jsx";
 import Blog10 from "./pages/Blog10.jsx";
 import Blog11 from "./pages/Blog11.jsx";
+import Blog13 from "./pages/Blog13.jsx";
 import OurMentors from "./pages/OurMentors.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import OurFaculties from "./pages/OurFaculties.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Terms from "./pages/Terms.jsx";
+import FAQ from "./pages/FAQ.jsx";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import InquiriesPage from "./pages/InquiriesPages";
@@ -64,11 +66,13 @@ export default function App() {
     <Route path="/fashiondesigners" element={<Blog10 />} />
     <Route path="/fashiondesigncourse" element={<Blog11 />} />
     <Route path="/fashiondesignskills" element={<Blog12 />} />
+    <Route path="/benefits-of-an-interior-design-course" element={<Blog13 />} />
 
 
     <Route path="/ourmentors" element={<OurMentors />} />
     <Route path="/gallery" element={<Gallery />} />
     <Route path="/ourfaculties" element={<OurFaculties />} />
+    <Route path="/faq" element={<FAQ />} />
     <Route path="/privacypolicy" element={<PrivacyPolicy />} />
     <Route path="/terms-and-condition" element={<Terms />} />
 

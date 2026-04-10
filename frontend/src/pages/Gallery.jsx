@@ -59,6 +59,8 @@ import gallery55 from "../assets/Gallery/gallery55.jpg";
 import gallery56 from "../assets/Gallery/gallery56.jpg";
 import gallery57 from "../assets/Gallery/gallery57.jpg";
 import { Helmet } from "react-helmet-async";
+import JsonLd from "../components/JsonLd";
+import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 
 
@@ -124,6 +126,11 @@ const images = [
 ];
 
 export default function Gallery() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Gallery", url: `${SITE_URL}/gallery` },
+  ]);
+
   const [showAll, setShowAll] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -174,6 +181,7 @@ export default function Gallery() {
                   href="https://nifglobalkolkatalindsay.com/gallery"
                 />
           </Helmet>
+    <JsonLd id="gallery-breadcrumbs" data={breadcrumbSchema} />
 
     <div className="bg-white">
       {/* Header */}

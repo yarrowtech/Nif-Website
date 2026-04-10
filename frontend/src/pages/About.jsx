@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { FiCheck } from "react-icons/fi";
 import { BiCheckSquare } from "react-icons/bi";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import JsonLd from "../components/JsonLd";
 import aboutbg from "../assets/New Folder/about-bg.jpg";
 import studentmentor from "../assets/New Folder/studentmentor.jpg";
 import mainak from "../assets/faculties/Mainak-Mitra.jpg";
@@ -18,6 +19,7 @@ import sudeshna from "../assets/faculties/sudheshna.jpg";
 import carlose from "../assets/faculties/carlose.jpg";
 import shashank from "../assets/faculties/Shashank.jpg";
 import nisha from "../assets/faculties/alankrita.png";
+import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 export default function About() {
   const facultyRef = useRef(null);
@@ -92,6 +94,14 @@ const scrollToIndex = (index) => {
   setCurrentIndex(index);
 };
 
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: `${SITE_URL}/` },
+  {
+    name: "About",
+    url: `${SITE_URL}/about-nif-kolkata-lindsay-campus/`,
+  },
+]);
+
 
 
   return (
@@ -114,6 +124,7 @@ const scrollToIndex = (index) => {
     href="https://nifglobalkolkatalindsay.com/about-nif-kolkata-lindsay-campus/" 
   />
 </Helmet>
+  <JsonLd id="about-breadcrumbs" data={breadcrumbSchema} />
 
    <section className="font-poppins">
   {/* Top banner */}

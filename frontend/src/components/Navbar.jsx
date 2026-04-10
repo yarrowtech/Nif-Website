@@ -122,6 +122,7 @@ export default function Navbar() {
             </li>
 
             <NavLink to="/placement-support-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Placement</NavLink>
+            <NavLink to="/faq" className={({ isActive }) => (isActive ? active : linkBase)}>FAQ</NavLink>
             <NavLink to="/blog" className={({ isActive }) => (isActive ? active : linkBase)}>Blog</NavLink>
             <NavLink to="/contact" className={({ isActive }) => (isActive ? active : linkBase)}>Contact Us</NavLink>
           </ul>
@@ -149,6 +150,7 @@ export default function Navbar() {
     <li><NavLink to="/interior-design-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Interior Design</NavLink></li>
     <li><NavLink to="/retail-management-course-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Retail Management</NavLink></li>
     <li><NavLink to="/placement-support-kolkata" className={({ isActive }) => (isActive ? active : linkBase)}>Placement</NavLink></li>
+    <li><NavLink to="/faq" className={({ isActive }) => (isActive ? active : linkBase)}>FAQ</NavLink></li>
     <li><NavLink to="/blog" className={({ isActive }) => (isActive ? active : linkBase)}>Blog</NavLink></li>
     <li><NavLink to="/contact" className={({ isActive }) => (isActive ? active : linkBase)}>Contact Us</NavLink></li>
   </ul>

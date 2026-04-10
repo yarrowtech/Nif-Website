@@ -24,6 +24,8 @@ import decofur from "../assets/SuccessStories/placement_brands_decofur.jpg";
 import raphaaa from "../assets/SuccessStories/placement_brands_rapahaa.jpg";
 
 import { Helmet } from "react-helmet-async";
+import JsonLd from "../components/JsonLd";
+import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 const STUDENTS = [
   { name: "Aishee Sikder", photo: aishee, companyLogo: devoir },
@@ -39,6 +41,14 @@ const STUDENTS = [
 ];
 
 export default function SuccessStories() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    {
+      name: "Success Stories",
+      url: `${SITE_URL}/students/success-stories`,
+    },
+  ]);
+
   return (
     <>
        <Helmet>
@@ -59,6 +69,7 @@ export default function SuccessStories() {
               href="https://nifglobalkolkatalindsay.com/students/success-stories"
             />
           </Helmet>
+    <JsonLd id="success-stories-breadcrumbs" data={breadcrumbSchema} />
 
     <div className="font-poppins text-gray-900">
       {/* ===== Hero ===== */}

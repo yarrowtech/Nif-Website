@@ -12,6 +12,8 @@ import carlose from "../assets/faculties/carlose.jpg";
 import shashank from "../assets/faculties/Shashank.jpg";
 import alankrita from "../assets/faculties/alankrita.png";
 import { Helmet } from "react-helmet-async";
+import JsonLd from "../components/JsonLd";
+import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
  
 const faculties = [
   { name: "Dr. Mainak Mitra", title: "Academic Head", img: mainak, desc: `Dr. Mainak Mitra holds a Phd in Textile Technology (CU). He is also educated in various other aspects in his field of expertise from India and abroad. He is a patron member of Textile Association of India and Institute of Engineers. Dr. Mitra has a working experience of 18 years in India and Bangladesh in brands like Casablanka, Montecarlo. He also has over 12 years of academic experience in Govt. College of Engineering and Textile Technology in apparel production textile testing. He is a visiting faculty of CU and is an invited lecturer in numerous national and international seminars. Dr. Mitra has a number of publications in National and International peer reviewed journals and also holds a patent on “Breathable Textile”.` },
@@ -26,6 +28,11 @@ const faculties = [
 ];
 
 export default function OurFaculties() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Our Faculties", url: `${SITE_URL}/ourfaculties` },
+  ]);
+
   return (
     <>
      <Helmet>
@@ -46,6 +53,7 @@ export default function OurFaculties() {
                       href="https://nifglobalkolkatalindsay.com/ourfaculties"
                     />
               </Helmet>
+    <JsonLd id="faculties-breadcrumbs" data={breadcrumbSchema} />
     
     <div className="bg-white">
   {/* Banner */}

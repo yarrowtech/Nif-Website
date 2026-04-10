@@ -5,6 +5,7 @@ import { FaGraduationCap } from "react-icons/fa";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import JsonLd from "../components/JsonLd";
 import heroImg from "../assets/New Folder/about-bg.jpg";
 import courseImg from "../assets/fashiondesigning/fashion1.jpg";
 import whyImg from "../assets/fashiondesigning/fashion2.JPG";
@@ -31,6 +32,12 @@ import fashionbrand16 from "../assets/fashiondesigning/fashionbrand16.jpg";
 import fashionbrand17 from "../assets/fashiondesigning/fashionbrand17.jpg";
 import fashionbrand18 from "../assets/fashiondesigning/fashionbrand18.jpg";
 import fashionbrand19 from "../assets/fashiondesigning/fashionbrand19.jpg";
+import {
+  createBreadcrumbSchema,
+  createCourseSchema,
+  createFaqSchema,
+  SITE_URL,
+} from "../utils/schema";
 
 
 export default function FashionDesign() {
@@ -62,6 +69,23 @@ const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Courses", url: `${SITE_URL}/fashion-design-course-kolkata/` },
+    {
+      name: "Fashion Design Course in Kolkata",
+      url: `${SITE_URL}/fashion-design-course-kolkata/`,
+    },
+  ]);
+
+  const courseSchema = createCourseSchema({
+    name: "Fashion Design Course in Kolkata",
+    description:
+      "Professional fashion design course with practical training, industry exposure, and certification.",
+  });
+
+  const faqSchema = createFaqSchema(faqs);
+
   
 
   return (
@@ -82,6 +106,9 @@ const scrollToTop = () => {
   {/* Canonical URL */}
   <link rel="canonical" href="https://nifglobalkolkatalindsay.com/fashion-design-course-kolkata/" />
 </Helmet>
+  <JsonLd id="fashion-course" data={courseSchema} />
+  <JsonLd id="fashion-breadcrumbs" data={breadcrumbSchema} />
+  <JsonLd id="fashion-faqs" data={faqSchema} />
 
     <section className="font-poppins">
       {/* Hero Section */}

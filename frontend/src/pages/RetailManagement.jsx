@@ -1,6 +1,7 @@
 // retailmanagement.jsx
 import React, { useMemo, useState } from "react";
 import { Helmet } from 'react-helmet-async';
+import JsonLd from "../components/JsonLd";
 import aboutbg from "../assets/New Folder/about-bg.jpg";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
@@ -26,6 +27,11 @@ import gallery10 from "../assets/runways/gallery14.jpg";
 import gallery11 from "../assets/runways/gallery15.jpg";
 import gallery12 from "../assets/runways/gallery31.jpg";
 import { Link } from "react-router-dom";
+import {
+  createBreadcrumbSchema,
+  createFaqSchema,
+  SITE_URL,
+} from "../utils/schema";
 
 
 
@@ -256,6 +262,22 @@ const _handleEnquirySubmit = (e) => {
     }
   };
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Courses", url: `${SITE_URL}/retail-management-course-kolkata/` },
+    {
+      name: "Retail Management Course in Kolkata",
+      url: `${SITE_URL}/retail-management-course-kolkata/`,
+    },
+  ]);
+
+  const faqSchema = createFaqSchema(
+    faq.map((item, idx) => ({
+      q: `${idx + 1}. ${item.q}`,
+      a: item.a,
+    }))
+  );
+
   return (
     <>
     <Helmet>
@@ -273,6 +295,8 @@ const _handleEnquirySubmit = (e) => {
 
   <link rel="canonical" href="https://nifglobalkolkatalindsay.com/retail-management-course-kolkata/" />
 </Helmet>
+    <JsonLd id="retail-breadcrumbs" data={breadcrumbSchema} />
+    <JsonLd id="retail-faqs" data={faqSchema} />
 
     <div className="min-h-screen w-full bg-white text-gray-900">
   {/* Top banner */}

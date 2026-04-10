@@ -11,14 +11,29 @@ import blog9 from "../assets/Blog/blog9.jpg";
 import blog10 from "../assets/Blog/blog10.jpg";
 import blog11 from "../assets/Blog/blog11.jpg";
 import blog12 from "../assets/Blog/blog12.jpeg";
+import blog13 from "../assets/Blog/blog2.png";
 
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
 import { Helmet } from "react-helmet-async";
+import JsonLd from "../components/JsonLd";
+import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 export default function Blog() {
   const posts = [
-      {
+    {
+      id: 13,
+      day: "10",
+      mon: "Apr",
+      img: blog13,
+      metaLeft: "Blog",
+      category: "Interior Design",
+      title: "10 Benefits of an Interior Design Course for Career Growth",
+      excerpt:
+        "Explore how an interior design course builds practical skills, expands career opportunities, and prepares you for long-term growth in the design industry.",
+      href: "/benefits-of-an-interior-design-course",
+    },
+    {
       id: 12,
       day: "19",
       mon: "Mar",
@@ -33,7 +48,7 @@ export default function Blog() {
     {
       id: 11,
       day: "19",
-      mon: "jan",
+      mon: "Jan",
       img: blog11,
       metaLeft: "Blog",
       category: "Fashion Designing",
@@ -171,6 +186,10 @@ export default function Blog() {
   ];
 const ACCENT = "#e94e2b";
 const ACCENT_DARK = "#c63c1f";
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: `${SITE_URL}/` },
+  { name: "Blog", url: `${SITE_URL}/blog` },
+]);
 
 return (
   <>
@@ -192,6 +211,7 @@ return (
       href="https://nifglobalkolkatalindsay.com/blog"
     />
   </Helmet>
+  <JsonLd id="blog-breadcrumbs" data={breadcrumbSchema} />
   
   <div className="min-h-screen w-full text-gray-900 font-poppins">
   {/* Hero */}

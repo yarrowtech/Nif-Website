@@ -4,12 +4,19 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
+import JsonLd from "../components/JsonLd";
+import { createBreadcrumbSchema, localSeoSchema, SITE_URL } from "../utils/schema";
 
 // If you intend to use the URL of that asset, use:
 // import brochure from "/Brochure/NIF-GLOBAL-lINDSAY-STREET.pdf?url";
 
 
 export default function Contact() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Contact", url: `${SITE_URL}/contact` },
+  ]);
+
   // --- Form state (MUST match backend keys) ---
   const [formData, setFormData] = useState({
     name: "",
@@ -94,6 +101,8 @@ export default function Contact() {
       href="https://nifglobalkolkatalindsay.com/contact"
     />
   </Helmet>
+    <JsonLd id="contact-local-seo" data={localSeoSchema} />
+    <JsonLd id="contact-breadcrumbs" data={breadcrumbSchema} />
   
     <Header />
     <Navbar />

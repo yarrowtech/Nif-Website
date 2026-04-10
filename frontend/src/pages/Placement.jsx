@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {Helmet} from "react-helmet-async";
+import JsonLd from "../components/JsonLd";
 import { useEffect, useState, useMemo, useRef } from "react";
 import placementImage from "../assets/New Folder/about-bg.jpg";
 import aishee from "../assets/SuccessStories/nif_placement_AisheeSikder.jpg";
@@ -44,6 +45,7 @@ import fashionbrand16 from "../assets/fashiondesigning/fashionbrand16.jpg";
 import fashionbrand17 from "../assets/fashiondesigning/fashionbrand17.jpg";
 import fashionbrand18 from "../assets/fashiondesigning/fashionbrand18.jpg";
 import fashionbrand19 from "../assets/fashiondesigning/fashionbrand19.jpg";
+import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 
 
@@ -124,6 +126,13 @@ React.useEffect(() => {
   // BRANDS TICKER (LOOP)
   // =====================
   const brandTickerSpeedSec = 45; // higher = slower
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    {
+      name: "Placement Support",
+      url: `${SITE_URL}/placement-support-kolkata`,
+    },
+  ]);
 
   return (
     <>
@@ -145,6 +154,7 @@ React.useEffect(() => {
     href="https://nifglobalkolkatalindsay.com/placement-support-kolkata"
   />
 </Helmet>
+    <JsonLd id="placement-breadcrumbs" data={breadcrumbSchema} />
 
     <div className="min-h-screen w-full text-gray-900 font-poppins">
   {/* HERO */}
