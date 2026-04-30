@@ -25,6 +25,7 @@ import Blog9 from "./pages/Blog9.jsx";
 import Blog10 from "./pages/Blog10.jsx";
 import Blog11 from "./pages/Blog11.jsx";
 import Blog13 from "./pages/Blog13.jsx";
+import Blog14 from "./pages/Blog14.jsx";
 import OurMentors from "./pages/OurMentors.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import OurFaculties from "./pages/OurFaculties.jsx";
@@ -67,6 +68,10 @@ export default function App() {
     <Route path="/fashiondesigncourse" element={<Blog11 />} />
     <Route path="/fashiondesignskills" element={<Blog12 />} />
     <Route path="/benefits-of-an-interior-design-course" element={<Blog13 />} />
+    <Route
+      path="/skills-you-gain-from-an-interior-design-institute-in-kolkata"
+      element={<Blog14 />}
+    />
 
 
     <Route path="/ourmentors" element={<OurMentors />} />

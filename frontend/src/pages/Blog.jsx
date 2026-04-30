@@ -12,6 +12,7 @@ import blog10 from "../assets/Blog/blog10.jpg";
 import blog11 from "../assets/Blog/blog11.jpg";
 import blog12 from "../assets/Blog/blog12.jpeg";
 import blog13 from "../assets/Blog/blog2.png";
+import blog14 from "../assets/Blog/blog14.png";
 
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
@@ -21,6 +22,18 @@ import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 export default function Blog() {
   const posts = [
+    {
+      id: 14,
+      day: "02",
+      mon: "Apr",
+      img: blog14,
+      metaLeft: "Blog",
+      category: "Interior Design",
+      title: "Skills You Gain From an Interior Design Institute in Kolkata",
+      excerpt:
+        "Learn the practical and professional skills you build in an interior design institute, from space planning and CAD tools to lighting, sustainability, and client management.",
+      href: "/skills-you-gain-from-an-interior-design-institute-in-kolkata",
+    },
     {
       id: 13,
       day: "10",
@@ -229,7 +242,6 @@ return (
       </div>
     </div>
   </header>
-
 
 
     <main className="mt-10 max-w-[1350px] mx-auto px-6 md:px-1 py-10 md:py-14">
