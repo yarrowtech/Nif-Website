@@ -90,10 +90,10 @@ const faqs = [
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: `${SITE_URL}/` },
-    { name: "Courses", url: `${SITE_URL}/interior-design-course-kolkata/` },
+    { name: "Courses", url: `${SITE_URL}/interior-design-course-kolkata` },
     {
       name: "Interior Design Course in Kolkata",
-      url: `${SITE_URL}/interior-design-course-kolkata/`,
+      url: `${SITE_URL}/interior-design-course-kolkata`,
     },
   ]);
 
@@ -124,7 +124,7 @@ const faqs = [
   {/* Canonical URL */}
   <link
     rel="canonical"
-    href="https://nifglobalkolkatalindsay.com/interior-design-course-kolkata/"
+    href="https://nifglobalkolkatalindsay.com/interior-design-course-kolkata"
   />
 </Helmet>
   <JsonLd id="interior-course" data={courseSchema} />

@@ -264,10 +264,10 @@ const _handleEnquirySubmit = (e) => {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: `${SITE_URL}/` },
-    { name: "Courses", url: `${SITE_URL}/retail-management-course-kolkata/` },
+    { name: "Courses", url: `${SITE_URL}/retail-management-course-kolkata` },
     {
       name: "Retail Management Course in Kolkata",
-      url: `${SITE_URL}/retail-management-course-kolkata/`,
+      url: `${SITE_URL}/retail-management-course-kolkata`,
     },
   ]);
 
@@ -293,7 +293,7 @@ const _handleEnquirySubmit = (e) => {
           content="Retail Management Course in Kolkata"
         />
 
-  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/retail-management-course-kolkata/" />
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/retail-management-course-kolkata" />
 </Helmet>
     <JsonLd id="retail-breadcrumbs" data={breadcrumbSchema} />
     <JsonLd id="retail-faqs" data={faqSchema} />

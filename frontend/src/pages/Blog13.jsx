@@ -338,7 +338,7 @@ export default function Blog13() {
               confidence, a professional portfolio, and real career direction.
               Explore the{" "}
               <a
-                href="/interior-design-course-kolkata/"
+                href="/interior-design-course-kolkata"
                 className="font-semibold text-emerald-700 hover:underline"
               >
                 interior design course in Kolkata
@@ -349,7 +349,7 @@ export default function Blog13() {
 
             <div className="mt-5">
               <a
-                href="/interior-design-course-kolkata/"
+                href="/interior-design-course-kolkata"
                 className="inline-block font-semibold text-emerald-700 hover:underline"
               >
                 Explore the Course →

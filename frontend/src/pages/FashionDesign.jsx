@@ -71,10 +71,10 @@ const scrollToTop = () => {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: `${SITE_URL}/` },
-    { name: "Courses", url: `${SITE_URL}/fashion-design-course-kolkata/` },
+    { name: "Courses", url: `${SITE_URL}/fashion-design-course-kolkata` },
     {
       name: "Fashion Design Course in Kolkata",
-      url: `${SITE_URL}/fashion-design-course-kolkata/`,
+      url: `${SITE_URL}/fashion-design-course-kolkata`,
     },
   ]);
 
@@ -104,7 +104,7 @@ const scrollToTop = () => {
   />
 
   {/* Canonical URL */}
-  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/fashion-design-course-kolkata/" />
+  <link rel="canonical" href="https://nifglobalkolkatalindsay.com/fashion-design-course-kolkata" />
 </Helmet>
   <JsonLd id="fashion-course" data={courseSchema} />
   <JsonLd id="fashion-breadcrumbs" data={breadcrumbSchema} />

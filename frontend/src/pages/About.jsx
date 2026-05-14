@@ -121,7 +121,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
 
   <link 
     rel="canonical" 
-    href="https://nifglobalkolkatalindsay.com/about-nif-kolkata-lindsay-campus/" 
+    href="https://nifglobalkolkatalindsay.com/about-nif-kolkata-lindsay-campus" 
   />
 </Helmet>
   <JsonLd id="about-breadcrumbs" data={breadcrumbSchema} />

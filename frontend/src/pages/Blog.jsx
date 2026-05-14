@@ -13,6 +13,7 @@ import blog11 from "../assets/Blog/blog11.jpg";
 import blog12 from "../assets/Blog/blog12.jpeg";
 import blog13 from "../assets/Blog/blog2.png";
 import blog14 from "../assets/Blog/blog14.png";
+import blog15 from "../assets/Blog/blog15-first.jpeg";
 
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
@@ -23,8 +24,20 @@ import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 export default function Blog() {
   const posts = [
     {
+      id: 15,
+      day: "11",
+      mon: "May",
+      img: blog15,
+      metaLeft: "Blog",
+      category: "Fashion Styling",
+      title: "Why We Wear What We Wear: The Psychology Behind Fashion Choices",
+      excerpt:
+        "Explore how psychology, identity, emotion, and culture shape our clothing choices — and why understanding this is essential for every great stylist.",
+      href: "/why-we-wear-what-we-wear-psychology-behind-fashion-choices",
+    },
+    {
       id: 14,
-      day: "02",
+      day: "22",
       mon: "Apr",
       img: blog14,
       metaLeft: "Blog",
