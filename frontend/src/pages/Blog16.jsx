@@ -13,6 +13,10 @@ export default function Blog16() {
           content="Discover smart small room design tricks, from light colours and vertical storage to mirrors, lighting, and multi-functional furniture."
         />
         <meta name="keywords" content="Interior Design Training in Kolkata" />
+        <link
+          rel="canonical"
+          href="https://nifglobalkolkatalindsay.com/small-room-big-impact-smart-design-tricks"
+        />
       </Helmet>
 
       <div className="bg-white text-gray-800 font-sans leading-relaxed">
