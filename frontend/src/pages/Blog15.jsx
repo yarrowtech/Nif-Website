@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import blog15First from "../assets/Blog/blog15-first.jpeg";
 import blog15Second from "../assets/Blog/blog15-second.jpeg";
 
+const linkClass = "text-blue-600 underline font-medium";
+
 export default function Blog15() {
   return (
     <>
@@ -48,8 +50,14 @@ export default function Blog15() {
             Our clothing choices are deeply intertwined with psychology, identity, culture, and
             emotion. Understanding why we dress the way we do can unlock a whole new level of
             self-awareness and that is precisely what the best{" "}
-            <strong>fashion styling courses in Kolkata</strong> aim to teach. At NIF Global
-            Lindsay Street, we go beyond trends and teach you to decode the human side of style.
+            <a href="/fashion-design-course-kolkata" className={linkClass}>
+              <strong>fashion styling courses in Kolkata</strong>
+            </a>{" "}
+            aim to teach. At{" "}
+          
+              NIF Global Lindsay Street
+            
+            , we go beyond trends and teach you to decode the human side of style.
           </p>
 
           <h2 className="text-3xl font-semibold mt-10 text-gray-900">
@@ -172,7 +180,24 @@ export default function Blog15() {
               shape what we consider stylish or desirable.
             </li>
             <li>
-              <strong>Social media algorithms:</strong> Platforms like Instagram and Pinterest
+              <strong>Social media algorithms:</strong> Platforms like{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Instagram"
+                className={linkClass}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Pinterest"
+                className={linkClass}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pinterest
+              </a>{" "}
               create feedback loops that reinforce certain aesthetic trends.
             </li>
             <li>

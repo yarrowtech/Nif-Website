@@ -27,6 +27,7 @@ import Blog11 from "./pages/Blog11.jsx";
 import Blog13 from "./pages/Blog13.jsx";
 import Blog14 from "./pages/Blog14.jsx";
 import Blog15 from "./pages/Blog15.jsx";
+import Blog16 from "./pages/Blog16.jsx";
 import OurMentors from "./pages/OurMentors.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import OurFaculties from "./pages/OurFaculties.jsx";
@@ -76,6 +77,10 @@ export default function App() {
     <Route
       path="/why-we-wear-what-we-wear-psychology-behind-fashion-choices"
       element={<Blog15 />}
+    />
+    <Route
+      path="/small-room-big-impact-smart-design-tricks"
+      element={<Blog16 />}
     />
 
 

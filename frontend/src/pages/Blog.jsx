@@ -14,6 +14,7 @@ import blog12 from "../assets/Blog/blog12.jpeg";
 import blog13 from "../assets/Blog/blog2.png";
 import blog14 from "../assets/Blog/blog14.png";
 import blog15 from "../assets/Blog/blog15-first.jpeg";
+import blog16 from "../assets/Blog/blog16.png";
 
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
@@ -23,6 +24,18 @@ import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 export default function Blog() {
   const posts = [
+    {
+      id: 16,
+      day: "20",
+      mon: "May",
+      img: blog16,
+      metaLeft: "Blog",
+      category: "Interior Design",
+      title: "Small Room, Big Impact: Smart Design Tricks That Actually Work",
+      excerpt:
+        "Discover practical design tricks that make small rooms feel brighter, larger, and more functional without sacrificing style.",
+      href: "/small-room-big-impact-smart-design-tricks",
+    },
     {
       id: 15,
       day: "11",
