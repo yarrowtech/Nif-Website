@@ -28,6 +28,7 @@ import Blog13 from "./pages/Blog13.jsx";
 import Blog14 from "./pages/Blog14.jsx";
 import Blog15 from "./pages/Blog15.jsx";
 import Blog16 from "./pages/Blog16.jsx";
+import Blog17 from "./pages/Blog17.jsx";
 import OurMentors from "./pages/OurMentors.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import OurFaculties from "./pages/OurFaculties.jsx";
@@ -81,6 +82,10 @@ export default function App() {
     <Route
       path="/small-room-big-impact-smart-design-tricks"
       element={<Blog16 />}
+    />
+    <Route
+      path="/job-opportunities-after-fashion-designing-training-in-kolkata"
+      element={<Blog17 />}
     />
 
 

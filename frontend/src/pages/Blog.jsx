@@ -15,6 +15,7 @@ import blog13 from "../assets/Blog/blog2.png";
 import blog14 from "../assets/Blog/blog14.png";
 import blog15 from "../assets/Blog/blog15-first.jpeg";
 import blog16 from "../assets/Blog/blog16.png";
+import blog17 from "../assets/Blog/blog17-first.png";
 
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
@@ -24,6 +25,18 @@ import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 export default function Blog() {
   const posts = [
+    {
+      id: 17,
+      day: "29",
+      mon: "May",
+      img: blog17,
+      metaLeft: "Blog",
+      category: "Fashion Designing",
+      title: "Job Opportunities After Fashion Designing Training in Kolkata",
+      excerpt:
+        "Explore fashion design career paths, salaries, recruiter opportunities, industry skills, and growth options after professional training in Kolkata.",
+      href: "/job-opportunities-after-fashion-designing-training-in-kolkata",
+    },
     {
       id: 16,
       day: "20",
