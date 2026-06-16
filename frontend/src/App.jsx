@@ -11,7 +11,8 @@ import ExploreNIF from "./pages/ExploreNIF";
 import Placement from "./pages/Placement";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-import FloatingActions from "./components/FloatingActions"; 
+import FloatingActions from "./components/FloatingActions";
+import ChatWidget from "./components/ChatWidget";
 import SuccessStories from "./pages/SuccessStories";
 import Blog1 from "./pages/Blog1.jsx";
 import Blog2 from "./pages/Blog2.jsx";
@@ -29,6 +30,7 @@ import Blog14 from "./pages/Blog14.jsx";
 import Blog15 from "./pages/Blog15.jsx";
 import Blog16 from "./pages/Blog16.jsx";
 import Blog17 from "./pages/Blog17.jsx";
+import Blog18 from "./pages/Blog18.jsx";
 import OurMentors from "./pages/OurMentors.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import OurFaculties from "./pages/OurFaculties.jsx";
@@ -87,6 +89,10 @@ export default function App() {
       path="/job-opportunities-after-fashion-designing-training-in-kolkata"
       element={<Blog17 />}
     />
+    <Route
+      path="/how-i-use-chatgpt-to-improve-my-fashion-design-assignments"
+      element={<Blog18 />}
+    />
 
 
     <Route path="/ourmentors" element={<OurMentors />} />
@@ -111,9 +117,10 @@ export default function App() {
 
    
       <FloatingActions
-        whatsappUrl="https://api.whatsapp.com/send/?phone=919836796000&text&type=phone_number&app_absent=0" // <-- your real link
-        useRouter={true} 
+        whatsappUrl="https://api.whatsapp.com/send/?phone=919836796000&text&type=phone_number&app_absent=0"
+        useRouter={true}
       />
+      <ChatWidget />
    </>
   );
 }

@@ -16,6 +16,7 @@ import blog14 from "../assets/Blog/blog14.png";
 import blog15 from "../assets/Blog/blog15-first.jpeg";
 import blog16 from "../assets/Blog/blog16.png";
 import blog17 from "../assets/Blog/blog17-first.png";
+import blog18 from "../assets/Blog/blog18-first.png";
 
 import blogBanner from "../assets/New Folder/about-bg.jpg";
 
@@ -25,6 +26,18 @@ import { createBreadcrumbSchema, SITE_URL } from "../utils/schema";
 
 export default function Blog() {
   const posts = [
+    {
+      id: 18,
+      day: "16",
+      mon: "Jun",
+      img: blog18,
+      metaLeft: "Blog",
+      category: "Fashion Design",
+      title: "How I Use ChatGPT to Improve My Fashion Design Assignments",
+      excerpt:
+        "See how ChatGPT can help with research, brainstorming, presentations, portfolio writing, and quick feedback while keeping your own creative voice intact.",
+      href: "/how-i-use-chatgpt-to-improve-my-fashion-design-assignments",
+    },
     {
       id: 17,
       day: "29",
