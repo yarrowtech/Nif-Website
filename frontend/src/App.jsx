@@ -12,7 +12,7 @@ import Placement from "./pages/Placement";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import FloatingActions from "./components/FloatingActions";
-import ChatWidget from "./components/ChatWidget";
+//import ChatWidget from "./components/ChatWidget";
 import SuccessStories from "./pages/SuccessStories";
 import Blog1 from "./pages/Blog1.jsx";
 import Blog2 from "./pages/Blog2.jsx";
@@ -120,7 +120,7 @@ export default function App() {
         whatsappUrl="https://api.whatsapp.com/send/?phone=919836796000&text&type=phone_number&app_absent=0"
         useRouter={true}
       />
-      <ChatWidget />
+     {/* <ChatWidget /> */}
    </>
   );
 }
